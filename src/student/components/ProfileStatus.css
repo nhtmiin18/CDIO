@@ -1,0 +1,131 @@
+.profile-status-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .card-header h3 {
+    color: #2c3e50;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  
+  .completion-rate {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .progress-circle {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: conic-gradient(#3498db 75%, #f1f2f6 0%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .progress-circle::before {
+    content: '';
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: white;
+  }
+  
+  .progress-text {
+    position: relative;
+    font-size: 18px;
+    font-weight: 700;
+    color: #3498db;
+    z-index: 1;
+  }
+  
+  .progress-label {
+    font-size: 14px;
+    color: #7f8c8d;
+    font-weight: 500;
+  }
+  
+  .profile-checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+  
+  .checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    transition: all 0.3s;
+  }
+  
+  .checklist-item:hover {
+    background: #e3f2fd;
+    transform: translateX(5px);
+  }
+  
+  .check-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .check-icon .completed {
+    color: #27ae60;
+    font-size: 16px;
+  }
+  
+  .check-icon .pending {
+    color: #e74c3c;
+    font-size: 16px;
+  }
+  
+  .check-label {
+    flex: 1;
+    font-weight: 500;
+  }
+  
+  .check-label.completed {
+    color: #27ae60;
+  }
+  
+  .check-label.pending {
+    color: #e74c3c;
+  }
+  
+  .complete-profile-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .complete-profile-btn:hover {
+    background: linear-gradient(135deg, #2980b9, #2471a3);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+  }

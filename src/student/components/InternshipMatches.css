@@ -1,0 +1,146 @@
+.internship-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .internship-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .internship-card .card-header h3 {
+    color: #2c3e50;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  
+  .view-all-btn {
+    padding: 10px 20px;
+    background: #f8f9fa;
+    color: #3498db;
+    border: 2px solid #e3f2fd;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .view-all-btn:hover {
+    background: #e3f2fd;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.2);
+  }
+  
+  .internship-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .internship-item {
+    padding: 25px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border-left: 4px solid #3498db;
+    transition: all 0.3s;
+  }
+  
+  .internship-item:hover {
+    background: #e3f2fd;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.15);
+  }
+  
+  .internship-header {
+    margin-bottom: 15px;
+  }
+  
+  .internship-header h4 {
+    color: #2c3e50;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .company {
+    color: #7f8c8d;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .internship-details {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .detail-tag {
+    padding: 6px 12px;
+    background: white;
+    color: #3498db;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid #e3f2fd;
+  }
+  
+  .internship-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .match-score {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .match-bar {
+    width: 150px;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .match-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #27ae60, #2ecc71);
+    border-radius: 4px;
+  }
+  
+  .match-percent {
+    color: #27ae60;
+    font-weight: 700;
+    font-size: 16px;
+    min-width: 80px;
+  }
+  
+  .view-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .view-btn:hover {
+    background: linear-gradient(135deg, #2980b9, #2471a3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+  }

@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import StudentDashboard from './student/StudentDashboard';
+
+// Hoặc import cả hai dashboard nếu muốn switch
+// import CVParsingDashboard from './components/CVParsingDashboard';
 
 function App() {
+  // State để switch giữa 2 dashboard nếu cần
+  const [isStudentView, setIsStudentView] = useState(true);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Nếu muốn switch giữa 2 dashboard */}
+      {/* <div className="dashboard-switcher">
+        <button onClick={() => setIsStudentView(true)}>Student Dashboard</button>
+        <button onClick={() => setIsStudentView(false)}>CV Parsing Dashboard</button>
+      </div> */}
+      
+      {isStudentView ? (
+        <StudentDashboard />
+      ) : (
+        // <CVParsingDashboard />
+        <div>CV Parsing Dashboard</div>
+      )}
     </div>
   );
 }

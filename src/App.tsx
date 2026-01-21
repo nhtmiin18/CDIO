@@ -8,22 +8,22 @@ import { RegisterScreen } from "./Screens/RegisterScreen";
 
 /* ===== STUDENT SCREENS ===== */
 import StudentDashboard from "./Screens/StudentDashboard";
-import StudentProfile from "./Screens/StudentProfile";
+import StudentProfile from "./Screens/StudentProfile.jsx";
 import UploadCVScreen from "./Screens/UploadCVScreen";
 import InternshipPostDetail from "./Screens/InternshipPostDetail";
 import NotificationsScreen from "./Screens/NotificationsScreen";
 
 /* ===== RECRUITER SCREENS ===== */
-import RecruiterDashboard from "./Screens/RecruiterDashboard";
-import CreateInternshipPost from "./Screens/CreateInternshipPost";
-import RecommendedScreen from "./Screens/RecommendedScreen";
-import StudentProfileView from "./Screens/StudentProfileView";
+import RecruiterDashboard from "./Screens/RecruiterDashboard.jsx";
+import CreateInternshipPost from "./Screens/CreateInternshipPost.jsx";
+import RecommendedScreen from "./Screens/RecommendedScreen.jsx";
+import StudentProfileView from "./Screens/StudentProfileView.jsx";
 
 /* ===== ADMIN SCREENS ===== */
-import AdminDashboard from "./Screens/AdminDashboard";
-import CVParsingScreen from "./Screens/CVParsing";
-import UserManagementScreen from "./Screens/UserManagement";
-import SystemReportScreen from "./Screens/SystemReportScreen";
+import AdminDashboard from "./Screens/AdminDashboard.jsx";
+import CVParsingScreen from "./Screens/CVParsing.jsx";
+import UserManagementScreen from "./Screens/UserManagement.jsx";
+import SystemReportScreen from "./Screens/SystemReportScreen.jsx";
 
 /* ===== TYPES ===== */
 export type Role = "student" | "recruiter" | "admin" | null;
@@ -67,8 +67,8 @@ type Student = {
 
 function App() {
     //thay Student: student-dashboard, Recruiter: recruiter-dashboard, Admin: admin-dashboard
-    const [screen, setScreen] = useState<Screen>("login");
-    const [role, setRole] = useState<Role>(null);
+    const [screen, setScreen] = useState<Screen>("upload-cv");
+    const [role, setRole] = useState<Role>("student");
     const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
 
     /* ===== COMMON ===== */
@@ -84,6 +84,7 @@ function App() {
         onUploadCV: () => setScreen("upload-cv"),
         onViewInternship: () => setScreen("internship-post-detail"),
         onClickNotification: () => setScreen("student-notifications"),
+        onViewCVParsing: () => setScreen("admin-cv-parsing"),
         onLogout: logout,
     };
 

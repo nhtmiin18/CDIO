@@ -1,4 +1,4 @@
-import { AppHeader } from "../components/AppHeader";
+﻿import { AppHeader } from "../components/AppHeader";
 import AdminTabBar from "../components/AdminTabBar";
 import { getUnreadCount } from "../components/notificationsHelper";
 
@@ -15,7 +15,7 @@ export default function UserManagementScreen({
     return (
         <div className="min-h-screen bg-gray-50 text-slate-800">
             <AppHeader
-                title="ISRS � User Management"
+                title="ISRS – User Management"
                 onClickNotification={onClickNotification}
                 notificationCount={unreadCount}
                 onLogout={onLogout}

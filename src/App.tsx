@@ -67,7 +67,7 @@ type Student = {
 
 function App() {
     //thay Student: student-dashboard, Recruiter: recruiter-dashboard, Admin: admin-dashboard
-    const [screen, setScreen] = useState<Screen>("login");
+    const [screen, setScreen] = useState<Screen>("admin-dashboard");
     const [role, setRole] = useState<Role>(null);
     const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
 
@@ -103,7 +103,7 @@ function App() {
         onViewCVParsing: () => setScreen("admin-cv-parsing"),
         onViewUserManagement: () => setScreen("admin-user-management"),
         onViewSystemReport: () => setScreen("admin-system-report"),
-        onClickNotification: () => setScreen("recruiter-notifications"),
+        onClickNotification: () => setScreen("admin-notifications"),
         onLogout: logout,
     };
 

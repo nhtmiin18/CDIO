@@ -69,6 +69,9 @@ function App() {
     //thay Student: student-dashboard, Recruiter: recruiter-dashboard, Admin: admin-dashboard
     const [screen, setScreen] = useState<Screen>("login");
     const [role, setRole] = useState<Role>(null);
+    const [screen, setScreen] = useState<Screen>("admin-dashboard");
+    const [role, setRole] = useState<Role>(null);
+
     const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
 
     /* ===== COMMON ===== */

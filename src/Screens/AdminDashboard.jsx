@@ -2,6 +2,24 @@ import { AppHeader } from "../components/AppHeader";
 import AdminTabBar from "../components/AdminTabBar";
 import { getUnreadCount } from "../components/notificationsHelper";
 
+﻿import { useEffect, useState } from "react";
+import axios from "axios";
+import {
+    BarChart,
+    Bar,
+    XAxis,
+    YAxis,
+    Tooltip,
+    ResponsiveContainer,
+} from "recharts";
+
+import { AppHeader } from "../components/AppHeader";
+import AdminTabBar from "../components/AdminTabBar";
+import { getUnreadCount } from "../components/notificationsHelper";
+
+const API = "http://localhost:5000/api/admin";
+
+
 export default function AdminDashboard({
     onViewDashboard,
     onViewCVParsing,

@@ -8,22 +8,22 @@ import { RegisterScreen } from "./Screens/RegisterScreen";
 
 /* ===== STUDENT SCREENS ===== */
 import StudentDashboard from "./Screens/StudentDashboard";
-import StudentProfile from "./Screens/StudentProfile.jsx";
+import StudentProfile from "./Screens/StudentProfile";
 import UploadCVScreen from "./Screens/UploadCVScreen";
 import InternshipPostDetail from "./Screens/InternshipPostDetail";
 import NotificationsScreen from "./Screens/NotificationsScreen";
 
 /* ===== RECRUITER SCREENS ===== */
-import RecruiterDashboard from "./Screens/RecruiterDashboard.jsx";
-import CreateInternshipPost from "./Screens/CreateInternshipPost.jsx";
-import RecommendedScreen from "./Screens/RecommendedScreen.jsx";
-import StudentProfileView from "./Screens/StudentProfileView.jsx";
+import RecruiterDashboard from "./Screens/RecruiterDashboard";
+import CreateInternshipPost from "./Screens/CreateInternshipPost";
+import RecommendedScreen from "./Screens/RecommendedScreen";
+import StudentProfileView from "./Screens/StudentProfileView";
 
 /* ===== ADMIN SCREENS ===== */
-import AdminDashboard from "./Screens/AdminDashboard.jsx";
-import CVParsingScreen from "./Screens/CVParsing.jsx";
-import UserManagementScreen from "./Screens/UserManagement.jsx";
-import SystemReportScreen from "./Screens/SystemReportScreen.jsx";
+import AdminDashboard from "./Screens/AdminDashboard";
+import CVParsingScreen from "./Screens/CVParsing";
+import UserManagementScreen from "./Screens/UserManagement";
+import SystemReportScreen from "./Screens/SystemReportScreen";
 
 /* ===== TYPES ===== */
 export type Role = "student" | "recruiter" | "admin" | null;
@@ -67,13 +67,11 @@ type Student = {
 
 function App() {
     //thay Student: student-dashboard, Recruiter: recruiter-dashboard, Admin: admin-dashboard
-<<<<<<< HEAD
+    const [screen, setScreen] = useState<Screen>("login");
+    const [role, setRole] = useState<Role>(null);
     const [screen, setScreen] = useState<Screen>("admin-dashboard");
     const [role, setRole] = useState<Role>(null);
-=======
-    const [screen, setScreen] = useState<Screen>("upload-cv");
-    const [role, setRole] = useState<Role>("student");
->>>>>>> e696b08a6fe9e785d9fb661802c613595a2580e0
+
     const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
 
     /* ===== COMMON ===== */
@@ -89,7 +87,6 @@ function App() {
         onUploadCV: () => setScreen("upload-cv"),
         onViewInternship: () => setScreen("internship-post-detail"),
         onClickNotification: () => setScreen("student-notifications"),
-        onViewCVParsing: () => setScreen("admin-cv-parsing"),
         onLogout: logout,
     };
 
@@ -109,7 +106,7 @@ function App() {
         onViewCVParsing: () => setScreen("admin-cv-parsing"),
         onViewUserManagement: () => setScreen("admin-user-management"),
         onViewSystemReport: () => setScreen("admin-system-report"),
-        onClickNotification: () => setScreen("admin-notifications"),
+        onClickNotification: () => setScreen("recruiter-notifications"),
         onLogout: logout,
     };
 
@@ -126,7 +123,7 @@ function App() {
 
         case "register":
             if (!role) return null;
-            return <RegisterScreen role={role} onBack={() => setScreen("role")} />;
+            return <RegisterScreen role={role} onBack={() => setScreen("login")} />;
 
         /* ===== STUDENT FLOW ===== */
         case "student-dashboard":

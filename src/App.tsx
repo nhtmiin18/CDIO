@@ -67,13 +67,8 @@ type Student = {
 
 function App() {
     //thay Student: student-dashboard, Recruiter: recruiter-dashboard, Admin: admin-dashboard
-<<<<<<< HEAD
     const [screen, setScreen] = useState<Screen>("admin-dashboard");
     const [role, setRole] = useState<Role>(null);
-=======
-    const [screen, setScreen] = useState<Screen>("upload-cv");
-    const [role, setRole] = useState<Role>("student");
->>>>>>> e696b08a6fe9e785d9fb661802c613595a2580e0
     const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
 
     /* ===== COMMON ===== */
@@ -160,7 +155,7 @@ function App() {
             return (
                 <RecommendedScreen
                     {...recruiterNav}
-                    onSelectStudent={(student) => {
+                    onSelectStudent={(student : Student) => {
                         setSelectedStudent(student);
                         setScreen("student-profile-view");
                     }}

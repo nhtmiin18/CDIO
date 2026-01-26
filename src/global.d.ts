@@ -1,11 +1,5 @@
-declare module '*.jsx' {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const content: any;
-    export default content;
-}
-
-declare module '*.js' {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const content: any;
-    export default content;
+declare module "*.jsx" {
+    import type { ComponentType } from "react";
+    const Component: ComponentType<unknown>;
+    export default Component;
 }

@@ -67,7 +67,6 @@ type Student = {
 };
 
 function App() {
-
     const [screen, setScreen] = useState<Screen>("recruiter-dashboard");
     const [role, setRole] = useState<Role>(null);
     const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);

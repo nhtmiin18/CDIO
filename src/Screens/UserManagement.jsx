@@ -51,9 +51,9 @@ export default function UserManagementScreen({
 
             <AppHeader
                 title="ISRS – User Management"
-                onClickNotification={onClickNotification}
+                onClickNotification={props.onClickNotification}
                 notificationCount={unreadCount}
-                onLogout={onLogout}
+                onLogout={props.onLogout}
             />
 
             <AdminTabBar
@@ -141,6 +141,60 @@ export default function UserManagementScreen({
                     </table>
 
                 </div>
+
+                <table className="w-full text-sm table-fixed">
+                    <thead>
+                        <tr className="border-b">
+                            <th className="text-left p-2 w-1/3">Name</th>
+                            <th className="text-left p-2 w-32">Role</th>
+                            <th className="text-left p-2 w-32">Status</th>
+                            <th className="text-center p-2 w-40">Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {filtered.map(u => (
+                            <tr key={u._id} className="border-t">
+
+                                <td className="p-2">{u.name}</td>
+
+                                <td className="p-2">{u.role}</td>
+
+                                <td className="p-2">
+                                    <span
+                                        className={`inline-block min-w-[70px] text-center px-3 py-1 rounded text-xs ${u.status === "blocked"
+                                                ? "bg-red-100 text-red-600"
+                                                : "bg-green-100 text-green-600"
+                                            }`}
+                                    >
+                                        {u.status}
+                                    </span>
+                                </td>
+
+                                <td className="p-2">
+                                    <div className="flex gap-3 items-center justify-center">
+
+                                        <button
+                                            onClick={() => toggleBlock(u._id)}
+                                            className="w-[80px] px-3 py-1 border rounded text-center"
+                                        >
+                                            {u.status === "blocked" ? "Unblock" : "Block"}
+                                        </button>
+
+                                        <button
+                                            onClick={() => deleteUser(u._id)}
+                                            className="px-3 py-1 border rounded text-red-500"
+                                        >
+                                            Delete
+                                        </button>
+
+                                    </div>
+                                </td>
+
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
     );

@@ -1,0 +1,754 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\isrs-ui\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\App.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\App.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\UserManagement.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\UserManagement.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\SystemReportScreen.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\SystemReportScreen.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\RecruiterDashboard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\RecruiterDashboard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\AdminDashboard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\AdminDashboard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\CVParsing.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\CVParsing.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\StudentProfileView.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\StudentProfileView.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\RecommendedScreen.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\RecommendedScreen.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\StudentDashboard.tsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\StudentDashboard.tsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\RecruiterTabBar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\RecruiterTabBar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\StudentProfile.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\StudentProfile.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\StudentTabBar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\StudentTabBar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\UploadCVScreen.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\UploadCVScreen.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\RegisterScreen.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\RegisterScreen.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\notificationsHelper.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\notificationsHelper.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\AppHeader.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\AppHeader.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\RecentActivity.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\RecentActivity.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\InternshipMatches.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\InternshipMatches.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\ProfileStatus.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\ProfileStatus.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\Card.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\Card.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\ProfilePhoto.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\ProfilePhoto.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\ProfileHeader.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\ProfileHeader.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\JobInfoBar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\JobInfoBar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\LinksPortfolio.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\LinksPortfolio.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\StudentList.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\StudentList.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\StudentCard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\StudentCard.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\Skills.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\Skills.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\Sidebar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\Sidebar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\ProfileStats.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\ProfileStats.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\InternshipPostManagement.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\InternshipPostManagement.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\BasicInfo.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\BasicInfo.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\AboutMe.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\AboutMe.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\ActionButtons.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\ActionButtons.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\Certificates.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\Certificates.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\Experience.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\Experience.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\FilterSidebar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\FilterSidebar.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\ProfileVisibility.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\ProfileVisibility.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\NotificationsScreen.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\NotificationsScreen.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\ForgotPasswordScreen.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\ForgotPasswordScreen.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\LoginScreen.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\LoginScreen.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\Screens\\RoleSelectScreen.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\Screens\\RoleSelectScreen.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\components\\AuthLayout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\components\\AuthLayout.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\src\\main.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.tsx||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\tsconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:tsconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\isrs-ui\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "App.tsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\App.tsx",
+              "RelativeDocumentMoniker": "src\\App.tsx",
+              "ToolTip": "C:\\isrs-ui\\src\\App.tsx",
+              "RelativeToolTip": "src\\App.tsx",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAEUAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-11T11:55:51.768Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RecruiterDashboard.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\RecruiterDashboard.jsx",
+              "RelativeDocumentMoniker": "src\\Screens\\RecruiterDashboard.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\RecruiterDashboard.jsx",
+              "RelativeToolTip": "src\\Screens\\RecruiterDashboard.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-18T14:14:39.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AdminDashboard.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\AdminDashboard.jsx",
+              "RelativeDocumentMoniker": "src\\Screens\\AdminDashboard.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\AdminDashboard.jsx",
+              "RelativeToolTip": "src\\Screens\\AdminDashboard.jsx",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAwDMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-18T13:54:27.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CVParsing.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\CVParsing.jsx",
+              "RelativeDocumentMoniker": "src\\Screens\\CVParsing.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\CVParsing.jsx",
+              "RelativeToolTip": "src\\Screens\\CVParsing.jsx",
+              "ViewState": "AgIAAGcAAAAAAAAAAAAAwJgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T20:20:31.482Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SystemReportScreen.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\SystemReportScreen.jsx",
+              "RelativeDocumentMoniker": "src\\Screens\\SystemReportScreen.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\SystemReportScreen.jsx",
+              "RelativeToolTip": "src\\Screens\\SystemReportScreen.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T20:26:27.671Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserManagement.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\UserManagement.jsx",
+              "RelativeDocumentMoniker": "src\\Screens\\UserManagement.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\UserManagement.jsx",
+              "RelativeToolTip": "src\\Screens\\UserManagement.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T20:27:20.606Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "StudentProfileView.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\StudentProfileView.jsx",
+              "RelativeDocumentMoniker": "src\\Screens\\StudentProfileView.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\StudentProfileView.jsx",
+              "RelativeToolTip": "src\\Screens\\StudentProfileView.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T20:26:02.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RecommendedScreen.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\RecommendedScreen.jsx",
+              "RelativeDocumentMoniker": "src\\Screens\\RecommendedScreen.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\RecommendedScreen.jsx",
+              "RelativeToolTip": "src\\Screens\\RecommendedScreen.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T20:23:18.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "StudentDashboard.tsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\StudentDashboard.tsx",
+              "RelativeDocumentMoniker": "src\\Screens\\StudentDashboard.tsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\StudentDashboard.tsx",
+              "RelativeToolTip": "src\\Screens\\StudentDashboard.tsx",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-17T19:21:32.18Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RecruiterTabBar.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\RecruiterTabBar.jsx",
+              "RelativeDocumentMoniker": "src\\components\\RecruiterTabBar.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\RecruiterTabBar.jsx",
+              "RelativeToolTip": "src\\components\\RecruiterTabBar.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-18T11:24:26.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StudentProfile.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\StudentProfile.jsx",
+              "RelativeDocumentMoniker": "src\\Screens\\StudentProfile.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\StudentProfile.jsx",
+              "RelativeToolTip": "src\\Screens\\StudentProfile.jsx",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAuwBwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T20:25:46.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "StudentTabBar.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\StudentTabBar.jsx",
+              "RelativeDocumentMoniker": "src\\components\\StudentTabBar.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\StudentTabBar.jsx",
+              "RelativeToolTip": "src\\components\\StudentTabBar.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-18T08:52:28.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UploadCVScreen.tsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\UploadCVScreen.tsx",
+              "RelativeDocumentMoniker": "src\\Screens\\UploadCVScreen.tsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\UploadCVScreen.tsx",
+              "RelativeToolTip": "src\\Screens\\UploadCVScreen.tsx",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAuwFYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-17T20:26:54.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RegisterScreen.tsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\RegisterScreen.tsx",
+              "RelativeDocumentMoniker": "src\\Screens\\RegisterScreen.tsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\RegisterScreen.tsx",
+              "RelativeToolTip": "src\\Screens\\RegisterScreen.tsx",
+              "ViewState": "AgIAADIAAAAAAAAAAAAAwAUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-17T20:24:10.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "notificationsHelper.ts",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\notificationsHelper.ts",
+              "RelativeDocumentMoniker": "src\\components\\notificationsHelper.ts",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\notificationsHelper.ts",
+              "RelativeToolTip": "src\\components\\notificationsHelper.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-18T06:41:05.211Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AppHeader.tsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\AppHeader.tsx",
+              "RelativeDocumentMoniker": "src\\components\\AppHeader.tsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\AppHeader.tsx",
+              "RelativeToolTip": "src\\components\\AppHeader.tsx",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAmwHQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-18T00:09:27.31Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "LinksPortfolio.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\LinksPortfolio.jsx",
+              "RelativeDocumentMoniker": "src\\components\\LinksPortfolio.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\LinksPortfolio.jsx",
+              "RelativeToolTip": "src\\components\\LinksPortfolio.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T23:36:01.522Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "Experience.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\Experience.jsx",
+              "RelativeDocumentMoniker": "src\\components\\Experience.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\Experience.jsx",
+              "RelativeToolTip": "src\\components\\Experience.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T23:36:19.382Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "Certificates.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\Certificates.jsx",
+              "RelativeDocumentMoniker": "src\\components\\Certificates.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\Certificates.jsx",
+              "RelativeToolTip": "src\\components\\Certificates.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T23:36:32.938Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Skills.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\Skills.jsx",
+              "RelativeDocumentMoniker": "src\\components\\Skills.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\Skills.jsx",
+              "RelativeToolTip": "src\\components\\Skills.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T23:38:22.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "AuthLayout.tsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\AuthLayout.tsx",
+              "RelativeDocumentMoniker": "src\\components\\AuthLayout.tsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\AuthLayout.tsx",
+              "RelativeToolTip": "src\\components\\AuthLayout.tsx",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-17T22:19:52.072Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "StudentList.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\StudentList.jsx",
+              "RelativeDocumentMoniker": "src\\components\\StudentList.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\StudentList.jsx",
+              "RelativeToolTip": "src\\components\\StudentList.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T22:05:32.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "StudentCard.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\StudentCard.jsx",
+              "RelativeDocumentMoniker": "src\\components\\StudentCard.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\StudentCard.jsx",
+              "RelativeToolTip": "src\\components\\StudentCard.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T22:02:49.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "Sidebar.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\Sidebar.jsx",
+              "RelativeDocumentMoniker": "src\\components\\Sidebar.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\Sidebar.jsx",
+              "RelativeToolTip": "src\\components\\Sidebar.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T22:02:43.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "ProfileVisibility.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\ProfileVisibility.jsx",
+              "RelativeDocumentMoniker": "src\\components\\ProfileVisibility.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\ProfileVisibility.jsx",
+              "RelativeToolTip": "src\\components\\ProfileVisibility.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T22:02:39.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ProfilePhoto.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\ProfilePhoto.jsx",
+              "RelativeDocumentMoniker": "src\\components\\ProfilePhoto.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\ProfilePhoto.jsx",
+              "RelativeToolTip": "src\\components\\ProfilePhoto.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T22:02:33.734Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ProfileHeader.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\ProfileHeader.jsx",
+              "RelativeDocumentMoniker": "src\\components\\ProfileHeader.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\ProfileHeader.jsx",
+              "RelativeToolTip": "src\\components\\ProfileHeader.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T22:02:30.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "JobInfoBar.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\JobInfoBar.jsx",
+              "RelativeDocumentMoniker": "src\\components\\JobInfoBar.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\JobInfoBar.jsx",
+              "RelativeToolTip": "src\\components\\JobInfoBar.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T22:02:25.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "FilterSidebar.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\FilterSidebar.jsx",
+              "RelativeDocumentMoniker": "src\\components\\FilterSidebar.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\FilterSidebar.jsx",
+              "RelativeToolTip": "src\\components\\FilterSidebar.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T22:02:21.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "BasicInfo.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\BasicInfo.jsx",
+              "RelativeDocumentMoniker": "src\\components\\BasicInfo.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\BasicInfo.jsx",
+              "RelativeToolTip": "src\\components\\BasicInfo.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T22:02:17.043Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "ActionButtons.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\ActionButtons.jsx",
+              "RelativeDocumentMoniker": "src\\components\\ActionButtons.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\ActionButtons.jsx",
+              "RelativeToolTip": "src\\components\\ActionButtons.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T22:02:10.936Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "AboutMe.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\AboutMe.jsx",
+              "RelativeDocumentMoniker": "src\\components\\AboutMe.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\AboutMe.jsx",
+              "RelativeToolTip": "src\\components\\AboutMe.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T22:02:05.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "tsconfig.json",
+              "DocumentMoniker": "C:\\isrs-ui\\tsconfig.json",
+              "RelativeDocumentMoniker": "tsconfig.json",
+              "ToolTip": "C:\\isrs-ui\\tsconfig.json",
+              "RelativeToolTip": "tsconfig.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-17T21:54:54.136Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\isrs-ui\\index.html",
+              "RelativeDocumentMoniker": "index.html",
+              "ToolTip": "C:\\isrs-ui\\index.html",
+              "RelativeToolTip": "index.html",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-01-17T21:48:00.151Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "main.tsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\main.tsx",
+              "RelativeDocumentMoniker": "src\\main.tsx",
+              "ToolTip": "C:\\isrs-ui\\src\\main.tsx",
+              "RelativeToolTip": "src\\main.tsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-17T21:43:08.623Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Card.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\Card.jsx",
+              "RelativeDocumentMoniker": "src\\components\\Card.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\Card.jsx",
+              "RelativeToolTip": "src\\components\\Card.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAA4wAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T21:04:56.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "ProfileStats.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\ProfileStats.jsx",
+              "RelativeDocumentMoniker": "src\\components\\ProfileStats.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\ProfileStats.jsx",
+              "RelativeToolTip": "src\\components\\ProfileStats.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T21:02:47.663Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ProfileStatus.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\ProfileStatus.jsx",
+              "RelativeDocumentMoniker": "src\\components\\ProfileStatus.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\ProfileStatus.jsx",
+              "RelativeToolTip": "src\\components\\ProfileStatus.jsx",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAiwBYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T21:02:39.084Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "RecentActivity.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\RecentActivity.jsx",
+              "RelativeDocumentMoniker": "src\\components\\RecentActivity.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\RecentActivity.jsx",
+              "RelativeToolTip": "src\\components\\RecentActivity.jsx",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAiwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T20:59:03.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "RoleSelectScreen.tsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\RoleSelectScreen.tsx",
+              "RelativeDocumentMoniker": "src\\Screens\\RoleSelectScreen.tsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\RoleSelectScreen.tsx",
+              "RelativeToolTip": "src\\Screens\\RoleSelectScreen.tsx",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-17T20:24:34.932Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "NotificationsScreen.tsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\NotificationsScreen.tsx",
+              "RelativeDocumentMoniker": "src\\Screens\\NotificationsScreen.tsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\NotificationsScreen.tsx",
+              "RelativeToolTip": "src\\Screens\\NotificationsScreen.tsx",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAAEcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-17T20:22:25.545Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "LoginScreen.tsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\LoginScreen.tsx",
+              "RelativeDocumentMoniker": "src\\Screens\\LoginScreen.tsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\LoginScreen.tsx",
+              "RelativeToolTip": "src\\Screens\\LoginScreen.tsx",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACUAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-17T20:22:05.622Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "InternshipPostManagement.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\InternshipPostManagement.jsx",
+              "RelativeDocumentMoniker": "src\\Screens\\InternshipPostManagement.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\InternshipPostManagement.jsx",
+              "RelativeToolTip": "src\\Screens\\InternshipPostManagement.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T20:21:39.662Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "ForgotPasswordScreen.tsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\Screens\\ForgotPasswordScreen.tsx",
+              "RelativeDocumentMoniker": "src\\Screens\\ForgotPasswordScreen.tsx",
+              "ToolTip": "C:\\isrs-ui\\src\\Screens\\ForgotPasswordScreen.tsx",
+              "RelativeToolTip": "src\\Screens\\ForgotPasswordScreen.tsx",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2026-01-17T20:20:59.892Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "InternshipMatches.jsx",
+              "DocumentMoniker": "C:\\isrs-ui\\src\\components\\InternshipMatches.jsx",
+              "RelativeDocumentMoniker": "src\\components\\InternshipMatches.jsx",
+              "ToolTip": "C:\\isrs-ui\\src\\components\\InternshipMatches.jsx",
+              "RelativeToolTip": "src\\components\\InternshipMatches.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAkwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-01-17T20:15:13.104Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

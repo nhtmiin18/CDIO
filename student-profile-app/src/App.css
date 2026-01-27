@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  color: #333;
+}
+
+.app {
+  min-height: 100vh;
+}
+
+.main-content {
+  margin-top: 70px; /* Height of navbar */
+  padding: 30px;
+}
+
+.content-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Profile Header */
+.profile-header {
+  background: white;
+  border-radius: 12px;
+  padding: 25px 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.header-content h1 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.header-content p {
+  color: #6c757d;
+  font-size: 1rem;
+}
+
+/* Content Grid Layout */
+.content-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 30px;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .content-grid {
+    grid-template-columns: 280px 1fr;
+    gap: 25px;
+  }
+  
+  .main-content {
+    padding: 25px;
+  }
+  
+  .profile-header {
+    padding: 22px 25px;
+  }
+  
+  .header-content h1 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .left-column {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  .profile-photo-section {
+    margin-bottom: 0;
+  }
+  
+  .profile-header {
+    padding: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .header-content h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 20px;
+    margin-top: 70px;
+  }
+  
+  .left-column {
+    grid-template-columns: 1fr;
+  }
+  
+  .profile-stats,
+  .basic-info,
+  .about-me,
+  .skills-section,
+  .certificates-section,
+  .experience-section,
+  .links-portfolio-section,
+  .profile-header {
+    padding: 20px;
+  }
+  
+  .header-content h1 {
+    font-size: 1.4rem;
+  }
+  
+  .header-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 15px;
+  }
+  
+  .content-grid {
+    gap: 20px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .input-row,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .add-skill-form,
+  .add-certificate-form,
+  .add-experience-form {
+    flex-direction: column;
+  }
+  
+  .profile-header {
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .header-content h1 {
+    font-size: 1.3rem;
+  }
+  
+  .header-content p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Action Buttons Responsive */
+@media (max-width: 768px) {
+  .action-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .cancel-btn,
+  .save-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Certificate Form Responsive */
+@media (max-width: 768px) {
+  .add-certificate-form {
+    grid-template-columns: 1fr;
+  }
+}

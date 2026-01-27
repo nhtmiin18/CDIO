@@ -1,0 +1,135 @@
+.certificates-section {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+  }
+  
+  .certificates-section h3 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+  }
+  
+  .certificates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .certificate-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+  }
+  
+  .certificate-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .certificate-content h4 {
+    color: #2c3e50;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .certificate-details {
+    color: #6c757d;
+    font-size: 0.95rem;
+  }
+  
+  .edit-input {
+    padding: 8px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  
+  .certificate-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .action-btn {
+    padding: 6px 15px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+  }
+  
+  .action-btn.edit {
+    background: #e3f2fd;
+    color: #1976d2;
+  }
+  
+  .action-btn.edit:hover {
+    background: #bbdefb;
+  }
+  
+  .action-btn.save {
+    background: #c8e6c9;
+    color: #2e7d32;
+  }
+  
+  .action-btn.save:hover {
+    background: #a5d6a7;
+  }
+  
+  .action-btn.delete {
+    background: #ffebee;
+    color: #d32f2f;
+  }
+  
+  .action-btn.delete:hover {
+    background: #ffcdd2;
+  }
+  
+  .add-certificate-form {
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr auto;
+    gap: 15px;
+    align-items: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 2px dashed #ced4da;
+  }
+  
+  .new-cert-input {
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    background: white;
+  }
+  
+  .add-cert-btn {
+    padding: 10px 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .add-cert-btn:hover {
+    background: #2980b9;
+  }

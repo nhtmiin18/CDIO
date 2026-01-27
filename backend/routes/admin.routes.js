@@ -10,9 +10,6 @@ router.get("/overview", adminController.getOverview);
 router.get("/activities", adminController.getActivities);
 router.get("/top-internships", adminController.getTopInternships);
 router.get("/usage", adminController.getUsage);
-router.get("/users", adminController.getUsers);
-router.put("/users/:id/block", adminController.toggleBlockUser);
-router.delete("/users/:id", adminController.deleteUser);
 
 /* USERS */
 router.get("/users", adminController.getUsers);

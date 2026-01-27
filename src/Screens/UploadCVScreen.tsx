@@ -34,7 +34,6 @@ export default function UploadCVScreen({
                 onLogout={onLogout}
             />
 
-            {/* TAB BAR */}
             <StudentTabBar
                 active="upload-cv"
                 onViewDashboard={onViewDashboard}

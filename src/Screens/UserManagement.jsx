@@ -6,7 +6,15 @@ import { getUnreadCount } from "../components/notificationsHelper";
 
 const API = "http://localhost:5000/api/admin";
 
-export default function UserManagementScreen(props) {
+export default function UserManagementScreen({
+    onViewDashboard,
+    onViewUserManagement,
+    onViewInternshipPosts,
+    onViewSystemReport,
+    onClickNotification,
+    onLogout,
+}) {
+
     const unreadCount = getUnreadCount();
 
     const [users, setUsers] = useState([]);
@@ -39,7 +47,8 @@ export default function UserManagementScreen(props) {
     );
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-slate-100">
+
             <AppHeader
                 title="ISRS – User Management"
                 onClickNotification={props.onClickNotification}
@@ -48,33 +57,89 @@ export default function UserManagementScreen(props) {
             />
 
             <AdminTabBar
-                active="user-management"
-                onViewDashboard={props.onViewDashboard}
-                onViewCVParsing={props.onViewCVParsing}
-                onViewUserManagement={props.onViewUserManagement}
-                onViewSystemReport={props.onViewSystemReport}
+                active="admin-user-management"
+                onViewDashboard={onViewDashboard}
+                onViewUserManagement={onViewUserManagement}
+                onViewInternshipPosts={onViewInternshipPosts}
+                onViewSystemReport={onViewSystemReport}
             />
 
-            <div className="max-w-6xl mx-auto p-8 bg-white rounded-xl">
+            <div className="max-w-7xl mx-auto p-8">
 
-                {/* SEARCH + FILTER */}
-                <div className="flex gap-4 mb-4">
-                    <input
-                        className="border p-2 rounded w-64"
-                        placeholder="Search name..."
-                        value={search}
-                        onChange={e => setSearch(e.target.value)}
-                    />
+                <div className="bg-white rounded-2xl shadow-sm border p-6">
 
-                    <select
-                        className="border p-2 rounded"
-                        value={role}
-                        onChange={e => setRole(e.target.value)}
-                    >
-                        <option value="all">All</option>
-                        <option value="student">Student</option>
-                        <option value="recruiter">Recruiter</option>
-                    </select>
+                    {/* FILTER */}
+                    <div className="flex gap-4 mb-6">
+                        <input
+                            className="border rounded-lg px-3 py-2 w-64"
+                            placeholder="Search name..."
+                            value={search}
+                            onChange={e => setSearch(e.target.value)}
+                        />
+
+                        <select
+                            className="border rounded-lg px-3 py-2"
+                            value={role}
+                            onChange={e => setRole(e.target.value)}
+                        >
+                            <option value="all">All</option>
+                            <option value="student">Student</option>
+                            <option value="recruiter">Recruiter</option>
+                        </select>
+                    </div>
+
+                    <table className="w-full text-sm">
+                        <thead>
+                            <tr className="border-b text-gray-500">
+                                <th className="text-left py-3">Name</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th className="text-center">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {filtered.map(u => (
+                                <tr key={u._id} className="border-b last:border-none">
+
+                                    <td className="py-3">{u.name}</td>
+
+                                    <td className="text-center capitalize">{u.role}</td>
+
+                                    <td className="text-center">
+                                        <span className={`px-3 py-1 rounded-full text-xs font-medium
+                                            ${u.status === "blocked"
+                                                ? "bg-red-100 text-red-600"
+                                                : "bg-green-100 text-green-600"}`}>
+                                            {u.status}
+                                        </span>
+                                    </td>
+
+                                    <td className="py-2">
+                                        <div className="flex justify-center gap-3">
+
+                                            <button
+                                                onClick={() => toggleBlock(u._id)}
+                                                className="px-3 py-1 border rounded-lg hover:bg-slate-100"
+                                            >
+                                                {u.status === "blocked" ? "Unblock" : "Block"}
+                                            </button>
+
+                                            <button
+                                                onClick={() => deleteUser(u._id)}
+                                                className="px-3 py-1 border rounded-lg text-red-500 hover:bg-red-50"
+                                            >
+                                                Delete
+                                            </button>
+
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+
                 </div>
 
                 <table className="w-full text-sm table-fixed">

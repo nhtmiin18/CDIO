@@ -1,39 +1,35 @@
 ﻿import { AppHeader } from "../components/AppHeader";
-import AdminTabBar from "../components/AdminTabBar";
+import StudentTabBar from "../components/StudentTabBar";
 import { getUnreadCount } from "../components/notificationsHelper";
 
 export default function CVParsingScreen({
     onViewDashboard,
+    onViewProfile,
+    onUploadCV,
+    onViewInternship,
     onViewCVParsing,
-    onViewUserManagement,
-    onViewSystemReport,
     onLogout,
     onClickNotification,
 }) {
     const unreadCount = getUnreadCount();
 
     return (
-        <div className="min-h-screen bg-gray-50 text-slate-800">
-            {/* HEADER */}
+        <div className="min-h-screen bg-slate-100 text-slate-800">
             <AppHeader
                 title="ISRS – CV Parsing Result"
                 onClickNotification={onClickNotification}
                 notificationCount={unreadCount}
                 onLogout={onLogout}
             />
-
-            {/* TAB BAR */}
-            <AdminTabBar
-                active="cv-parsing"
+            <StudentTabBar
+                active="student-cv-parsing"
                 onViewDashboard={onViewDashboard}
+                onViewProfile={onViewProfile}
+                onUploadCV={onUploadCV}
                 onViewCVParsing={onViewCVParsing}
-                onViewUserManagement={onViewUserManagement}
-                onViewSystemReport={onViewSystemReport}
+                onViewInternship={onViewInternship}
             />
-
-            {/* CONTENT */}
             <div className="max-w-7xl mx-auto p-8 space-y-8">
-                {/* SUMMARY */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                     <StatBox title="Profile Match" value="85%" />
                     <StatBox title="Skills Identified" value="12" />
@@ -42,6 +38,7 @@ export default function CVParsingScreen({
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
                     {/* LEFT */}
                     <div className="space-y-6">
                         <Card title="Identified Skills">
@@ -77,14 +74,18 @@ export default function CVParsingScreen({
                             <MatchedPosition title="Backend Developer Intern" score={92} />
                         </Card>
                     </div>
+
                 </div>
             </div>
         </div>
     );
 }
+
+/* ================= COMPONENTS ================= */
+
 function StatBox({ title, value }) {
     return (
-        <div className="bg-white border p-6 text-center">
+        <div className="bg-white rounded-2xl border shadow-sm p-6 text-center">
             <div className="text-2xl font-bold">{value}</div>
             <div className="text-sm text-gray-500 mt-1">{title}</div>
         </div>
@@ -93,7 +94,7 @@ function StatBox({ title, value }) {
 
 function Card({ title, children }) {
     return (
-        <div className="bg-white border p-6">
+        <div className="bg-white rounded-2xl border shadow-sm p-6">
             <h3 className="font-semibold mb-4">{title}</h3>
             {children}
         </div>
@@ -106,7 +107,7 @@ function SkillGroup({ title, items }) {
             <div className="text-sm font-medium mb-2">{title}</div>
             <div className="flex flex-wrap gap-2">
                 {items.map((i) => (
-                    <span key={i} className="border px-3 py-1 text-sm">
+                    <span key={i} className="border rounded-lg px-3 py-1 text-sm bg-slate-50">
                         {i}
                     </span>
                 ))}
@@ -122,9 +123,9 @@ function Progress({ label, value }) {
                 <span>{label}</span>
                 <span>{value}%</span>
             </div>
-            <div className="w-full bg-gray-200 h-2">
+            <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
                 <div
-                    className="bg-black h-2"
+                    className="bg-slate-800 h-2"
                     style={{ width: `${value}%` }}
                 />
             </div>
@@ -134,7 +135,7 @@ function Progress({ label, value }) {
 
 function ExperienceItem({ title, duration, desc }) {
     return (
-        <div className="border-l-4 border-black pl-4 mb-4">
+        <div className="border-l-4 border-slate-800 pl-4 mb-4">
             <div className="font-semibold">{title}</div>
             <div className="text-xs text-gray-500">{duration}</div>
             <div className="text-sm mt-1">{desc}</div>
@@ -144,7 +145,7 @@ function ExperienceItem({ title, duration, desc }) {
 
 function MatchedPosition({ title, score }) {
     return (
-        <div className="border p-4 mb-3 flex justify-between items-center">
+        <div className="border rounded-xl p-4 mb-3 flex justify-between items-center">
             <div>{title}</div>
             <div className="font-bold">{score}%</div>
         </div>

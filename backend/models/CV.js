@@ -1,52 +1,29 @@
 const mongoose = require("mongoose");
 
-const CVSchema = new mongoose.Schema(
-    {
-        userId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User",
-            required: true,
-        },
-
-        fullName: {
-            type: String,
-            required: true,
-        },
-
-        email: String,
-        phone: String,
-
-        title: String,
-        summary: String,
-        location: String,
-
-        skills: [String],
-
-        education: [
-            {
-                school: String,
-                degree: String,
-                field: String,
-                startYear: String,
-                endYear: String,
-            },
-        ],
-
-        experience: [
-            {
-                company: String,
-                position: String,
-                startDate: String,
-                endDate: String,
-                description: String,
-            },
-        ],
-
-        cvFileUrl: String,
+const cvSchema = new mongoose.Schema({
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     },
-    {
-        timestamps: true, // createdAt + updatedAt
-    }
-);
 
-module.exports = mongoose.model("CV", CVSchema, "cv");
+    fullName: String,
+    email: String,
+    phone: String,
+    title: String,
+    summary: String,
+    location: String,
+
+    skills: Array,
+    education: Array,
+    experience: Array,
+
+    parsed: {
+        type: Boolean,
+        default: true
+    },
+
+    cvFileUrl: String
+
+}, { timestamps: true });
+
+module.exports = mongoose.model("CV", cvSchema, "cv");

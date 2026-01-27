@@ -2,13 +2,13 @@
 const Activity = require("../models/AdminActivity");
 const Internship = require("../models/AppliedInternship");
 const CV = require("../models/CV");
+const InternshipPost = require("../models/InternshipPost");
 
 /* ================= OVERVIEW ================= */
 
 exports.getOverview = async (req, res) => {
     try {
         const totalUsers = await User.countDocuments({ role: { $ne: "admin" } });
-
         const students = await User.countDocuments({ role: "student" });
         const recruiters = await User.countDocuments({ role: "recruiter" });
         const cvParsed = await CV.countDocuments();
@@ -99,25 +99,23 @@ exports.getUsers = async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
+
 };
-/* ================= BLOCK / UNBLOCK ================= */
+
+/* ================= BLOCK ================= */
 
 exports.toggleBlockUser = async (req, res) => {
     try {
         const user = await User.findById(req.params.id);
-
         user.status = user.status === "blocked" ? "active" : "blocked";
-
         await user.save();
-
         res.json(user);
-    } catch {
-        res.status(500).json({ message: "Block failed" });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
     }
 };
 
-
-/* ================= DELETE USER ================= */
+/* ================= DELETE ================= */
 
 exports.deleteUser = async (req, res) => {
     try {
@@ -127,3 +125,116 @@ exports.deleteUser = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
+
+/* ================= USER ISSUES ================= */
+
+exports.getUserIssues = async (req, res) => {
+    try {
+        const noName = await User.countDocuments({
+            $or: [{ name: null }, { name: "" }]
+        });
+
+        const noRole = await User.countDocuments({
+            $or: [{ role: null }, { role: "" }]
+        });
+
+        const blocked = await User.countDocuments({
+            status: "blocked"
+        });
+
+        res.json({
+            noName,
+            noRole,
+            blocked
+        });
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+/* ================= SYSTEM REPORT ================= */
+
+exports.getSystemReport = async (req, res) => {
+    try {
+        const totalCV = await CV.countDocuments();
+
+        const parsedSuccess = await CV.countDocuments({ parsed: true });
+        const parsedFailed = await CV.countDocuments({ parsed: false });
+
+        const noSkills = await CV.countDocuments({
+            $or: [{ skills: { $size: 0 } }, { skills: { $exists: false } }]
+        });
+
+        const noPhone = await CV.countDocuments({
+            $or: [{ phone: null }, { phone: "" }]
+        });
+
+        const noEmail = await CV.countDocuments({
+            $or: [{ email: null }, { email: "" }]
+        });
+
+        res.json({
+            totalCV,
+            parsedSuccess,
+            parsedFailed,
+            noSkills,
+            noPhone,
+            noEmail
+        });
+
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+/* =============== INTERNSHIP POSTS =============== */
+exports.getInternshipPostStats = async (req, res) => {
+    try {
+
+        const posts = await InternshipPost.find();
+
+        const total = posts.length;
+
+        const active = posts.filter(p => p.status === "PUBLISHED").length;
+        const paused = posts.filter(p => p.status === "PAUSED").length;
+        const expired = posts.filter(p => p.status === "EXPIRED").length;
+        const draft = posts.filter(p => p.status === "DRAFT").length;
+
+        res.json({
+            total,
+            active,
+            paused,
+            expired,
+            draft
+        });
+
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+
+exports.getInternshipPosts = async (req, res) => {
+    try {
+        const posts = await InternshipPost.find().sort({ createdAt: -1 });
+        res.json(posts); 
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+/* ===== UPDATE POST STATUS ===== */
+
+exports.updatePostStatus = async (req, res) => {
+    try {
+        const { status } = req.body;
+
+        const post = await InternshipPost.findByIdAndUpdate(
+            req.params.id,
+            { status },
+            { new: true }
+        );
+
+        res.json(post);
+
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+};
+

@@ -5,17 +5,17 @@ import { getUnreadCount } from "../components/notificationsHelper";
 
 function RecommendedScreen({
     onSelectStudent,
-    onLogout,
     onViewDashboard,
-    onCreatePost,
     onViewRecommended,
+    onViewPosts,
+    onLogout,
     onClickNotification,
 }) {
+
     const unreadCount = getUnreadCount();
 
     return (
-        <div className="min-h-screen bg-gray-50">
-            {/* HEADER */}
+        <div className="min-h-screen bg-slate-100">
             <AppHeader
                 title="ISRS – Recommended Students"
                 onClickNotification={onClickNotification}
@@ -23,16 +23,15 @@ function RecommendedScreen({
                 onLogout={onLogout}
             />
 
-            {/* TAB BAR */}
             <RecruiterTabBar
                 active="recommended"
                 onViewDashboard={onViewDashboard}
-                onCreatePost={onCreatePost}
                 onViewRecommended={onViewRecommended}
+                onViewPosts={onViewPosts}
             />
 
-            {/* CONTENT */}
-            <div className="p-8">
+            <div className="max-w-6xl mx-auto p-8">
+
                 <h2 className="text-xl font-semibold mb-6">
                     Matched Students
                 </h2>
@@ -40,14 +39,16 @@ function RecommendedScreen({
                 {studentsData.map((student) => (
                     <div
                         key={student.id}
-                        className="border p-4 mb-3 cursor-pointer"
+                        className="bg-white rounded-2xl border shadow-sm p-4 mb-3 cursor-pointer hover:bg-slate-50"
                         onClick={() => onSelectStudent(student)}
                     >
                         <h3 className="font-semibold">
                             {student.name}
                         </h3>
                         <p>{student.major}</p>
-                        <p>Match score: {student.matchScore}%</p>
+                        <p className="text-sm text-gray-500">
+                            Match score: {student.matchScore}%
+                        </p>
                     </div>
                 ))}
             </div>

@@ -1,5 +1,10 @@
 declare module "*.jsx" {
-    import type { ComponentType } from "react";
-    const Component: ComponentType<unknown>;
+    import React from "react";
+    const Component: React.FC<any>;
     export default Component;
+}
+
+declare module "*.js" {
+    const content: any;
+    export default content;
 }

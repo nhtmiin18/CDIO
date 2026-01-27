@@ -9,7 +9,7 @@ type Props = {
     onViewProfile: () => void;
     onUploadCV: () => void;
     onViewInternship: () => void;
-    /*    onBack?: () => void;*/
+    onViewCVParsing: () => void;
 };
 
 export default function InternshipPostDetail({
@@ -19,11 +19,13 @@ export default function InternshipPostDetail({
     onViewProfile,
     onUploadCV,
     onViewInternship,
+    onViewCVParsing,
 }: Props) {
     const unreadCount = getUnreadCount();
 
     return (
-        <div className="min-h-screen bg-gray-50 text-slate-800">
+        <div className="min-h-screen bg-slate-100 text-slate-800">
+
             {/* HEADER */}
             <AppHeader
                 title="ISRS – Internship Detail"
@@ -39,11 +41,13 @@ export default function InternshipPostDetail({
                 onViewProfile={onViewProfile}
                 onUploadCV={onUploadCV}
                 onViewInternship={onViewInternship}
+                onViewCVParsing={onViewCVParsing}
             />
 
             {/* CONTENT */}
             <div className="max-w-5xl mx-auto p-8">
-                <div className="bg-white border rounded-xl p-6 space-y-4">
+                <div className="bg-white border rounded-2xl shadow-sm p-6 space-y-4">
+
                     <h2 className="text-xl font-semibold">
                         Frontend Developer Intern
                     </h2>
@@ -57,8 +61,10 @@ export default function InternshipPostDetail({
                         <p><strong>Duration:</strong> 6 months</p>
                         <p><strong>Stipend:</strong> $2000 / month</p>
                     </div>
+
                 </div>
             </div>
+
         </div>
     );
 }

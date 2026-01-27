@@ -1,76 +1,79 @@
 ﻿import { AppHeader } from "../components/AppHeader";
-import RecruiterTabBar from "../components/RecruiterTabBar";
 import { getUnreadCount } from "../components/notificationsHelper";
 
-function StudentProfileView({
+export default function StudentProfileView({
     student,
     onBack,
-    onViewDashboard,
-    onCreatePost,
-    onViewRecommended,
     onClickNotification,
     onLogout,
 }) {
     if (!student) return null;
+
     const unreadCount = getUnreadCount();
 
     return (
-        <div className="min-h-screen bg-gray-50">
-            {/* HEADER */}
+        <div className="min-h-screen bg-slate-100 text-slate-800">
+
             <AppHeader
                 title="Student Profile"
                 onClickNotification={onClickNotification}
                 notificationCount={unreadCount}
+                showBack={true}
+                onBack={onBack}        // 👈 BACK VỀ RECOMMENDED
                 onLogout={onLogout}
             />
 
-            {/* TAB BAR */}
-            <RecruiterTabBar
-                active="student-profile-view"
-                onViewDashboard={onViewDashboard}
-                onCreatePost={onCreatePost}
-                onViewRecommended={onViewRecommended}
-            />
+            <div className="max-w-5xl mx-auto p-8">
 
-            {/* CONTENT */}
-            <div className="max-w-4xl mx-auto p-6">
-                {/* BACK */}
-                <button
-                    onClick={onBack}
-                    className="mb-4 text-blue-600 hover:underline"
-                >
-                    ← Back to matches
-                </button>
+                {/* PROFILE CARD */}
+                <div className="bg-white rounded-2xl border shadow-sm p-6">
 
-                {/* CARD */}
-                <div className="bg-white border rounded-lg p-6">
                     <h2 className="text-2xl font-semibold mb-1">
                         {student.name}
                     </h2>
-                    <p className="text-gray-500 mb-4">
+
+                    <p className="text-gray-500 mb-6">
                         {student.major}
                     </p>
 
-                    <div className="mb-4">
-                        <h4 className="font-semibold mb-2">Skills</h4>
-                        <ul className="list-disc pl-6">
-                            {student.skills.map((s) => (
-                                <li key={s}>{s}</li>
+                    {/* SKILLS */}
+                    <div className="mb-6">
+                        <div className="font-semibold mb-2">Skills</div>
+
+                        <div className="flex flex-wrap gap-2">
+                            {student.skills.map(s => (
+                                <span
+                                    key={s}
+                                    className="px-3 py-1 bg-slate-100 rounded-full text-sm"
+                                >
+                                    {s}
+                                </span>
                             ))}
-                        </ul>
+                        </div>
                     </div>
 
-                    <p className="mb-2">
-                        <b>Experience:</b> {student.experience}
-                    </p>
+                    {/* EXPERIENCE */}
+                    <div className="mb-4">
+                        <div className="font-semibold mb-1">
+                            Experience
+                        </div>
+                        <div className="text-gray-600">
+                            {student.experience}
+                        </div>
+                    </div>
 
-                    <p>
-                        <b>Certificates:</b> {student.certificates}
-                    </p>
+                    {/* CERTIFICATES */}
+                    <div>
+                        <div className="font-semibold mb-1">
+                            Certificates
+                        </div>
+                        <div className="text-gray-600">
+                            {student.certificates}
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     );
 }
-
-export default StudentProfileView;

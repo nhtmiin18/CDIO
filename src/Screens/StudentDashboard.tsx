@@ -3,21 +3,33 @@ import InternshipMatches from "../components/InternshipMatches";
 import RecentActivity from "../components/RecentActivity";
 import { AppHeader } from "../components/AppHeader";
 import { getUnreadCount } from "../components/notificationsHelper";
-import StudentTabBar from "../components/StudentTabBar"
+import StudentTabBar from "../components/StudentTabBar";
 
-export default function StudentDashboard({
-    onViewDashboard,
-    onViewProfile,
-    onUploadCV,
-    onViewInternship,
+type Props = {
+    onClickNotification: () => void;
+    onUploadCV: () => void;
+    onLogout: () => void;
+    onViewProfile: () => void;
+    onViewInternship: () => void;
+    onViewCVParsing: () => void;
+    onViewDashboard: () => void;
+};
+
+
+export default function UploadCVScreen({
     onClickNotification,
+    onUploadCV,
     onLogout,
-}) {
+    onViewDashboard,
+    onViewInternship,
+    onViewCVParsing,
+    onViewProfile,
+}: Props) {
     const unreadCount = getUnreadCount();
 
     return (
-        <div className="min-h-screen bg-gray-50">
-            {/* HEADER */}
+        <div className="min-h-screen bg-slate-100 text-slate-800">
+
             <AppHeader
                 title="ISRS – Student Dashboard"
                 onClickNotification={onClickNotification}
@@ -30,29 +42,29 @@ export default function StudentDashboard({
                 onViewDashboard={onViewDashboard}
                 onViewProfile={onViewProfile}
                 onUploadCV={onUploadCV}
+                onViewCVParsing={onViewCVParsing}
                 onViewInternship={onViewInternship}
             />
 
+            <div className="max-w-7xl mx-auto p-8 space-y-8">
 
+                <div className="bg-white rounded-2xl border shadow-sm p-6">
+                    <h1 className="text-xl font-semibold">
+                        Welcome, Student 👋
+                    </h1>
+                    <p className="text-slate-500">
+                        Your personalized internship dashboard
+                    </p>
+                </div>
 
-            {/* WELCOME */}
-            <div className="border p-4 mb-6 bg-white">
-                <h1 className="text-xl font-semibold">
-                    Welcome, Student 👋
-                </h1>
-                <p className="text-gray-500">
-                    Your personalized internship dashboard
-                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <ProfileStatus />
+                    <InternshipMatches />
+                </div>
+
+                <RecentActivity />
+
             </div>
-
-            {/* MAIN GRID */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <ProfileStatus />
-                <InternshipMatches />
-            </div>
-
-            {/* ACTIVITY */}
-            <RecentActivity />
         </div>
     );
 }

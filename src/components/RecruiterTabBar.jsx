@@ -1,17 +1,19 @@
 ﻿export default function RecruiterTabBar({
     active,
     onViewDashboard,
-    onCreatePost,
     onViewRecommended,
+    onViewPosts
 }) {
+
     const tabClass = (key) =>
         `px-4 py-2 cursor-pointer ${active === key
-            ? "border-b-2 border-blue-600 font-semibold"
-            : "text-gray-500"
+            ? "border-b-2 border-slate-800 font-semibold"
+            : "text-gray-500 hover:text-slate-800"
         }`;
 
     return (
         <div className="flex gap-6 border-b bg-white px-6">
+
             <div
                 className={tabClass("recruiter-dashboard")}
                 onClick={onViewDashboard}
@@ -20,10 +22,10 @@
             </div>
 
             <div
-                className={tabClass("create-internship-post")}
-                onClick={onCreatePost}
+                className={tabClass("recruiter-posts")}
+                onClick={onViewPosts}
             >
-                Create Post
+                My Posts
             </div>
 
             <div
@@ -32,6 +34,7 @@
             >
                 Recommended Students
             </div>
+
         </div>
     );
 }

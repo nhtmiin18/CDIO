@@ -1,7 +1,6 @@
-export default function Card({ title, children }) {
+export default function Card({ children }) {
     return (
-        <div className="border rounded-lg p-4 bg-white">
-            <h3 className="font-semibold mb-3 border-b pb-2">{title}</h3>
+        <div className="bg-white rounded-2xl shadow-sm border p-6">
             {children}
         </div>
     );

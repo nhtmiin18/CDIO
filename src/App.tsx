@@ -12,47 +12,48 @@ import StudentProfile from "./Screens/StudentProfile.jsx";
 import UploadCVScreen from "./Screens/UploadCVScreen";
 import InternshipPostDetail from "./Screens/InternshipPostDetail";
 import NotificationsScreen from "./Screens/NotificationsScreen";
+import CVParsingScreen from "./Screens/CVParsing";
 
 /* ===== RECRUITER SCREENS ===== */
 import RecruiterDashboard from "./Screens/RecruiterDashboard.jsx";
 import CreateInternshipPost from "./Screens/CreateInternshipPost.jsx";
 import RecommendedScreen from "./Screens/RecommendedScreen.jsx";
 import StudentProfileView from "./Screens/StudentProfileView.jsx";
+import MyInternshipPosts from "./Screens/MyInternshipPosts.jsx";
 
 /* ===== ADMIN SCREENS ===== */
 import AdminDashboard from "./Screens/AdminDashboard.jsx";
-import CVParsingScreen from "./Screens/CVParsing.jsx";
 import UserManagementScreen from "./Screens/UserManagement.jsx";
 import SystemReportScreen from "./Screens/SystemReportScreen.jsx";
+import InternshipPostManagement from "./Screens/InternshipPostManagement.jsx";
 
 /* ===== TYPES ===== */
+
 export type Role = "student" | "recruiter" | "admin" | null;
 
 export type Screen =
-    /* auth */
     | "login"
     | "forgot-password"
     | "role"
     | "register"
 
-    /* student */
     | "student-dashboard"
     | "student-profile"
     | "upload-cv"
     | "internship-post-detail"
+    | "student-cv-parsing"
     | "student-notifications"
 
-    /* recruiter */
     | "recruiter-dashboard"
     | "create-internship-post"
     | "recommended"
+    | "recruiter-posts"
     | "student-profile-view"
     | "recruiter-notifications"
 
-    /* admin */
     | "admin-dashboard"
-    | "admin-cv-parsing"
     | "admin-user-management"
+    | "admin-internship-posts"
     | "admin-system-report"
     | "admin-notifications";
 
@@ -66,69 +67,70 @@ type Student = {
 };
 
 function App() {
-    //thay Student: student-dashboard, Recruiter: recruiter-dashboard, Admin: admin-dashboard
-<<<<<<< HEAD
-    const [screen, setScreen] = useState<Screen>("admin-dashboard");
+
+    const [screen, setScreen] = useState<Screen>("recruiter-dashboard");
     const [role, setRole] = useState<Role>(null);
-=======
-    const [screen, setScreen] = useState<Screen>("upload-cv");
-    const [role, setRole] = useState<Role>("student");
->>>>>>> e696b08a6fe9e785d9fb661802c613595a2580e0
     const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
 
-    /* ===== COMMON ===== */
     const logout = () => {
         setRole(null);
         setScreen("login");
     };
 
     /* ===== STUDENT NAV ===== */
+
     const studentNav = {
         onViewDashboard: () => setScreen("student-dashboard"),
         onViewProfile: () => setScreen("student-profile"),
         onUploadCV: () => setScreen("upload-cv"),
         onViewInternship: () => setScreen("internship-post-detail"),
         onClickNotification: () => setScreen("student-notifications"),
-        onViewCVParsing: () => setScreen("admin-cv-parsing"),
+        onViewCVParsing: () => setScreen("student-cv-parsing"),
         onLogout: logout,
     };
 
     /* ===== RECRUITER NAV ===== */
+
     const recruiterNav = {
         onViewDashboard: () => setScreen("recruiter-dashboard"),
         onCreatePost: () => setScreen("create-internship-post"),
         onViewRecommended: () => setScreen("recommended"),
+        onViewPosts: () => setScreen("recruiter-posts"),
         onBackDashboard: () => setScreen("recruiter-dashboard"),
         onClickNotification: () => setScreen("recruiter-notifications"),
         onLogout: logout,
     };
 
     /* ===== ADMIN NAV ===== */
+
     const adminNav = {
         onViewDashboard: () => setScreen("admin-dashboard"),
-        onViewCVParsing: () => setScreen("admin-cv-parsing"),
         onViewUserManagement: () => setScreen("admin-user-management"),
+        onViewInternshipPosts: () => setScreen("admin-internship-posts"),
         onViewSystemReport: () => setScreen("admin-system-report"),
         onClickNotification: () => setScreen("admin-notifications"),
         onLogout: logout,
     };
 
     /* ===== RENDER ===== */
+
     switch (screen) {
-        /* ===== AUTH FLOW ===== */
+
         case "login":
             return <LoginScreen setScreen={setScreen} />;
 
         case "forgot-password":
             return <ForgotPasswordScreen onBack={() => setScreen("login")} />;
 
-        case "role": return <RoleSelectScreen setRole={setRole} setScreen={setScreen} />;
+        case "role":
+            return <RoleSelectScreen setRole={setRole} setScreen={setScreen} />;
 
         case "register":
             if (!role) return null;
             return <RegisterScreen role={role} onBack={() => setScreen("role")} />;
 
-        /* ===== STUDENT FLOW ===== */
+        /* ===== STUDENT ===== */
+
         case "student-dashboard":
             return <StudentDashboard {...studentNav} />;
 
@@ -141,26 +143,28 @@ function App() {
         case "internship-post-detail":
             return <InternshipPostDetail {...studentNav} />;
 
-        case "student-notifications":
-            return (
-                <NotificationsScreen
-                    onBack={() => setScreen("student-dashboard")}
-                    onLogout={logout}
-                />
-            );
+        case "student-cv-parsing":
+            return <CVParsingScreen {...studentNav} />;
 
-        /* ===== RECRUITER FLOW ===== */
+        case "student-notifications":
+            return <NotificationsScreen onBack={() => setScreen("student-dashboard")} onLogout={logout} />;
+
+        /* ===== RECRUITER ===== */
+
         case "recruiter-dashboard":
             return <RecruiterDashboard {...recruiterNav} />;
 
         case "create-internship-post":
             return <CreateInternshipPost {...recruiterNav} />;
 
+        case "recruiter-posts":
+            return <MyInternshipPosts {...recruiterNav} />;
+
         case "recommended":
             return (
                 <RecommendedScreen
                     {...recruiterNav}
-                    onSelectStudent={(student) => {
+                    onSelectStudent={(student: Student) => {
                         setSelectedStudent(student);
                         setScreen("student-profile-view");
                     }}
@@ -176,35 +180,25 @@ function App() {
                 />
             );
 
-
         case "recruiter-notifications":
-            return (
-                <NotificationsScreen
-                    onBack={() => setScreen("recruiter-dashboard")}
-                    onLogout={logout}
-                />
-            );
+            return <NotificationsScreen onBack={() => setScreen("recruiter-dashboard")} onLogout={logout} />;
 
-        /* ===== ADMIN FLOW ===== */
+        /* ===== ADMIN ===== */
+
         case "admin-dashboard":
             return <AdminDashboard {...adminNav} />;
 
-        case "admin-cv-parsing":
-            return <CVParsingScreen {...adminNav} />;
-
         case "admin-user-management":
             return <UserManagementScreen {...adminNav} />;
+
+        case "admin-internship-posts":
+            return <InternshipPostManagement {...adminNav} />;
 
         case "admin-system-report":
             return <SystemReportScreen {...adminNav} />;
 
         case "admin-notifications":
-            return (
-                <NotificationsScreen
-                    onBack={() => setScreen("admin-dashboard")}
-                    onLogout={logout}
-                />
-            );
+            return <NotificationsScreen onBack={() => setScreen("admin-dashboard")} onLogout={logout} />;
 
         default:
             return null;

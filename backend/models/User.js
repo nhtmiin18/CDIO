@@ -2,13 +2,18 @@
 
 const userSchema = new mongoose.Schema(
     {
-        email: { type: String, required: true, unique: true },
-        password: { type: String, required: true },
-        fullName: { type: String },
+        name: String,
+        email: String,
+        password: String,
         role: {
             type: String,
-            enum: ["admin", "student", "recruiter"],
-            required: true,
+            enum: ["student", "recruiter", "admin"],
+            default: "student",
+        },
+        status: {
+            type: String,
+            enum: ["active", "blocked"],
+            default: "active",
         },
     },
     { timestamps: true }

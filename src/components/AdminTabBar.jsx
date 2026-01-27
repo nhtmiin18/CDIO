@@ -1,10 +1,11 @@
 export default function AdminTabBar({
     active,
     onViewDashboard,
-    onViewCVParsing,
     onViewUserManagement,
+    onViewInternshipPosts,
     onViewSystemReport,
 }) {
+
     const item = (key, label, onClick) => (
         <div
             onClick={onClick}
@@ -21,9 +22,9 @@ export default function AdminTabBar({
     return (
         <div className="bg-white border-b flex px-8">
             {item("admin-dashboard", "Dashboard", onViewDashboard)}
-            {item("cv-parsing", "CV Parsing", onViewCVParsing)}
-            {item("user-management", "Users", onViewUserManagement)}
-            {item("system-report", "Reports", onViewSystemReport)}
+            {item("admin-user-management", "Users", onViewUserManagement)}
+            {item("admin-internship-posts", "Internship Posts", onViewInternshipPosts)}
+            {item("admin-system-report", "Reports", onViewSystemReport)}
         </div>
     );
 }

@@ -1,26 +1,41 @@
-﻿const express = require("express");
-const dotenv = require("dotenv");
-const cors = require("cors");
-const connectDB = require("./config/db");
+﻿const express = require('express');
+const mongoose = require('mongoose');
+const path = require('path');
+const cors = require('cors');
+require('dotenv').config();
 
-dotenv.config();
-connectDB();
+const connectDB = require('./config/db');
+const authRoutes = require('./routes/auth');  
+const profileRoutes = require('./routes/profile');
 
 const app = express();
 
-/* ===== MIDDLEWARE ===== */
+// Connect to MongoDB
+connectDB();
+
+// CORS - QUAN TRỌNG NHẤT
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: ['http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'x-auth-token', 'Authorization'],
     credentials: true
 }));
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-/* ===== ROUTES ===== */
-app.use("/api/admin", require("./routes/admin.routes"));
+// Routes
+app.use('/api/auth', authRoutes);    
+app.use('/api/profile', profileRoutes);
 
-/* ===== START SERVER ===== */
+// Error handling
+app.use((err, req, res, next) => {
+    console.error('❌ Error:', err.stack);
+    res.status(500).json({ success: false, message: err.message });
+});
+
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 Server running on port ${PORT}`);
 });

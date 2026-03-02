@@ -44,6 +44,7 @@ export function LoginScreen({ setScreen }: Props) {
       // ✅ lưu token (sau này dùng auth)
       localStorage.setItem("token", data.token);
       localStorage.setItem("role", data.role);
+      localStorage.setItem("user", JSON.stringify(data.user));
 
       // 🔥 ĐIỀU HƯỚNG THEO ROLE
       if (data.role === "student") {

@@ -69,8 +69,10 @@ function App() {
     //thay Student: student-dashboard, Recruiter: recruiter-dashboard, Admin: admin-dashboard
     const [screen, setScreen] = useState<Screen>("login");
     const [role, setRole] = useState<Role>(null);
-    const [screen, setScreen] = useState<Screen>("admin-dashboard");
-    const [role, setRole] = useState<Role>(null);
+    // const [screen, setScreen] = useState<Screen>("admin-dashboard");
+    // const [role, setRole] = useState<Role>(null);
+   
+
 
     const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
 
@@ -91,14 +93,26 @@ function App() {
     };
 
     /* ===== RECRUITER NAV ===== */
-    const recruiterNav = {
-        onViewDashboard: () => setScreen("recruiter-dashboard"),
-        onCreatePost: () => setScreen("create-internship-post"),
-        onViewRecommended: () => setScreen("recommended"),
-        onBackDashboard: () => setScreen("recruiter-dashboard"),
-        onClickNotification: () => setScreen("recruiter-notifications"),
-        onLogout: logout,
-    };
+   const [editingPostId, setEditingPostId] = useState<string | null>(null);
+   const [selectedPostId, setSelectedPostId] = useState<string | null>(null);
+
+const recruiterNav = {
+  onViewDashboard: () => setScreen("recruiter-dashboard"),
+
+  onCreatePost: (id?: string) => {
+    setEditingPostId(id ?? null);
+    setScreen("create-internship-post");
+  },
+
+  onViewRecommended: (postId: string) => {
+  setSelectedPostId(postId);
+  setScreen("recommended");
+},
+  onBackDashboard: () => setScreen("recruiter-dashboard"),
+  onClickNotification: () => setScreen("recruiter-notifications"),
+  onLogout: logout,
+};
+
 
     /* ===== ADMIN NAV ===== */
     const adminNav = {
@@ -150,19 +164,39 @@ function App() {
         case "recruiter-dashboard":
             return <RecruiterDashboard {...recruiterNav} />;
 
+        // case "create-internship-post":
+        //     return <CreateInternshipPost {...recruiterNav} />;
         case "create-internship-post":
-            return <CreateInternshipPost {...recruiterNav} />;
+  return (
+    <CreateInternshipPost
+      {...recruiterNav}
+      editingPostId={editingPostId}
+      
+    />
+  );
 
+        // case "recommended":
+        //     return (
+        //         <RecommendedScreen
+        //             {...recruiterNav}
+        //             onSelectStudent={(student) => {
+        //                 setSelectedStudent(student);
+        //                 setScreen("student-profile-view");
+        //             }}
+        //         />
+        //     );
         case "recommended":
-            return (
-                <RecommendedScreen
-                    {...recruiterNav}
-                    onSelectStudent={(student) => {
-                        setSelectedStudent(student);
-                        setScreen("student-profile-view");
-                    }}
-                />
-            );
+            console.log("selectedPostId:", selectedPostId); // 👈 thêm dòng này
+    return (
+        <RecommendedScreen
+            {...recruiterNav}
+            postId={selectedPostId}
+            onSelectStudent={(student) => {
+                setSelectedStudent(student);
+                setScreen("student-profile-view");
+            }}
+        />
+    );
 
         case "student-profile-view":
             return (

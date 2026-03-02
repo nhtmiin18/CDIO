@@ -23,6 +23,15 @@ const userSchema = new mongoose.Schema(
     fullName: String,
     university: String,
     major: String,
+    
+    skills: {
+  programmingLanguages: [String],
+  frameworks: [String],
+  tools: [String]
+    } ,
+    year: Number,   
+    certifications: [String],
+    gpa:Number,
 
     // RECRUITER
     companyName: String,

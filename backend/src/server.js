@@ -5,6 +5,9 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routes/auth.routes.js";
 import mongoose from "mongoose";
 import createAdminAccount from "./config/creatAdmin.js";
+import postRoutes from "./routes/post.route.js";
+import matchRoutes from "./routes/match.route.js";
+
 
 
 dotenv.config();
@@ -14,6 +17,9 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB connected");
@@ -22,8 +28,12 @@ mongoose.connect(process.env.MONGO_URI)
   .catch(err => console.log(err));
 
 app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes); 
+app.use("/api/matches", matchRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () =>
   console.log(`🚀 Server running on http://localhost:${PORT}`)
 );
+
+

@@ -61,6 +61,11 @@ export const login = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ email });
+    // if (user.status === "blocked") {
+    // return res.status(403).json({
+    //     message: "Your account has been blocked by admin"
+    // });
+//}
     if (!user)
       return res.status(400).json({ message: "Invalid email or password" });
 
@@ -81,6 +86,9 @@ export const login = async (req, res) => {
       user: {
         id: user._id,
         email: user.email,
+        role: user.role,
+        companyName: user.companyName,
+        hrName: user.hrName
       },
     });
   } catch (error) {

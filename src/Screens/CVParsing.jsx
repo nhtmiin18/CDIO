@@ -1,8 +1,10 @@
-﻿import { AppHeader } from "../components/AppHeader";
+﻿import { useEffect, useState } from "react";
+import axios from "axios";
+import { AppHeader } from "../components/AppHeader";
 import StudentTabBar from "../components/StudentTabBar";
 import { getUnreadCount } from "../components/notificationsHelper";
 
-export default function CVParsingScreen({
+const CVParsing = ({
     onViewDashboard,
     onViewProfile,
     onUploadCV,
@@ -10,17 +12,60 @@ export default function CVParsingScreen({
     onViewCVParsing,
     onLogout,
     onClickNotification,
-}) {
+}) => {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(true);
+
     const unreadCount = getUnreadCount();
 
+    useEffect(() => {
+        const fetchParsed = async () => {
+            try {
+                const user = JSON.parse(localStorage.getItem("user"));
+                const id = user.id;
+
+                const res = await axios.get(
+                    `http://localhost:5000/api/student/parse/${id}`
+                );
+
+                setData(res.data);
+
+            } catch (err) {
+                console.error(
+                    "GET PARSE ERROR:",
+                    err.response?.data || err.message
+                );
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchParsed();
+    }, []);
+
+    if (loading)
+        return (
+            <div className="min-h-screen flex items-center justify-center text-xl font-semibold">
+                Loading CV Analysis...
+            </div>
+        );
+
+    if (!data)
+        return (
+            <div className="min-h-screen flex items-center justify-center text-xl">
+                No parsed data found
+            </div>
+        );
+
     return (
-        <div className="min-h-screen bg-slate-100 text-slate-800">
+        <div className="min-h-screen bg-gradient-to-br from-slate-100 to-slate-200 text-slate-800">
             <AppHeader
                 title="ISRS – CV Parsing Result"
                 onClickNotification={onClickNotification}
                 notificationCount={unreadCount}
                 onLogout={onLogout}
             />
+
             <StudentTabBar
                 active="student-cv-parsing"
                 onViewDashboard={onViewDashboard}
@@ -29,103 +74,63 @@ export default function CVParsingScreen({
                 onViewCVParsing={onViewCVParsing}
                 onViewInternship={onViewInternship}
             />
-            <div className="max-w-7xl mx-auto p-8 space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-                    <StatBox title="Profile Match" value="85%" />
-                    <StatBox title="Skills Identified" value="12" />
-                    <StatBox title="Years Experience" value="3" />
-                    <StatBox title="Matched Positions" value="24" />
+
+            <div className="max-w-6xl mx-auto p-8 space-y-8">
+
+                {/* PROFILE SCORE */}
+                <div className="bg-gradient-to-r from-indigo-600 to-slate-800 text-white rounded-2xl shadow-xl p-8">
+                    <h2 className="text-sm uppercase tracking-wide opacity-80">
+                        Profile Match Score
+                    </h2>
+                    <div className="text-5xl font-bold mt-2">
+                        {data.profileScore}%
+                    </div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* POSTS GRID */}
+                <div className="grid md:grid-cols-2 gap-6">
+                    {data.posts?.map((post, index) => (
+                        <div
+                            key={index}
+                            className="bg-white rounded-2xl shadow-md p-6 border hover:shadow-xl transition"
+                        >
+                            <h3 className="text-lg font-semibold mb-4">
+                                {post.title}
+                            </h3>
 
-                    {/* LEFT */}
-                    <div className="space-y-6">
-                        <Card title="Identified Skills">
-                            <SkillGroup title="Programming Languages" items={["Python", "JavaScript", "Java", "C++"]} />
-                            <SkillGroup title="Frameworks" items={["React", "Node.js", "Django"]} />
-                            <SkillGroup title="Tools" items={["Git", "Docker", "AWS"]} />
-                        </Card>
+                            <ScoreBar label="Total Score" value={post.score} highlight />
 
-                        <Card title="Experience Summary">
-                            <ExperienceItem
-                                title="Project Title 1"
-                                duration="6 months"
-                                desc="Built web application using React and Node.js"
-                            />
-                            <ExperienceItem
-                                title="Project Title 2"
-                                duration="3 months"
-                                desc="Developed REST APIs with Django"
-                            />
-                        </Card>
-                    </div>
+                            <ScoreBar label="Skill Match" value={post.skillScore} />
 
-                    {/* RIGHT */}
-                    <div className="space-y-6">
-                        <Card title="Strength Assessment">
-                            <Progress label="Technical Skills" value={85} />
-                            <Progress label="Project Experience" value={70} />
-                            <Progress label="Education Match" value={90} />
-                        </Card>
+                            <ScoreBar label="Major Match" value={post.majorScore} />
 
-                        <Card title="Top Matched Positions">
-                            <MatchedPosition title="Frontend Developer Intern" score={95} />
-                            <MatchedPosition title="Backend Developer Intern" score={92} />
-                        </Card>
-                    </div>
+                            <ScoreBar label="Experience Match" value={post.experienceScore} />
 
+                            <ScoreBar label="GPA Match" value={post.gpaScore} />
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
     );
-}
+};
 
-/* ================= COMPONENTS ================= */
-
-function StatBox({ title, value }) {
-    return (
-        <div className="bg-white rounded-2xl border shadow-sm p-6 text-center">
-            <div className="text-2xl font-bold">{value}</div>
-            <div className="text-sm text-gray-500 mt-1">{title}</div>
-        </div>
-    );
-}
-
-function Card({ title, children }) {
-    return (
-        <div className="bg-white rounded-2xl border shadow-sm p-6">
-            <h3 className="font-semibold mb-4">{title}</h3>
-            {children}
-        </div>
-    );
-}
-
-function SkillGroup({ title, items }) {
-    return (
-        <div className="mb-4">
-            <div className="text-sm font-medium mb-2">{title}</div>
-            <div className="flex flex-wrap gap-2">
-                {items.map((i) => (
-                    <span key={i} className="border rounded-lg px-3 py-1 text-sm bg-slate-50">
-                        {i}
-                    </span>
-                ))}
-            </div>
-        </div>
-    );
-}
-
-function Progress({ label, value }) {
+function ScoreBar({ label, value, highlight }) {
     return (
         <div className="mb-4">
             <div className="flex justify-between text-sm mb-1">
                 <span>{label}</span>
-                <span>{value}%</span>
+                <span className={`font-semibold ${highlight ? "text-indigo-600" : ""}`}>
+                    {value}%
+                </span>
             </div>
-            <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
+            <div className="w-full bg-gray-200 h-3 rounded-full overflow-hidden">
                 <div
-                    className="bg-slate-800 h-2"
+                    className={`h-3 rounded-full transition-all duration-500 
+                        ${highlight
+                            ? "bg-gradient-to-r from-indigo-500 to-slate-800"
+                            : "bg-slate-700"
+                        }`}
                     style={{ width: `${value}%` }}
                 />
             </div>
@@ -133,21 +138,4 @@ function Progress({ label, value }) {
     );
 }
 
-function ExperienceItem({ title, duration, desc }) {
-    return (
-        <div className="border-l-4 border-slate-800 pl-4 mb-4">
-            <div className="font-semibold">{title}</div>
-            <div className="text-xs text-gray-500">{duration}</div>
-            <div className="text-sm mt-1">{desc}</div>
-        </div>
-    );
-}
-
-function MatchedPosition({ title, score }) {
-    return (
-        <div className="border rounded-xl p-4 mb-3 flex justify-between items-center">
-            <div>{title}</div>
-            <div className="font-bold">{score}%</div>
-        </div>
-    );
-}
+export default CVParsing;

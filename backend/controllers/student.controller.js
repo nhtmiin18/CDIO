@@ -1,0 +1,127 @@
+﻿const CV = require("../models/CV");
+const InternshipPost = require("../models/InternshipPost");
+const ParsedCV = require("../models/ParsedCV");
+
+/*
+=====================================================
+POST /api/student/parse/:id
+=====================================================
+*/
+router.get("/parse/:cvId", async (req, res) => {
+    try {
+        const { cvId } = req.params;
+
+        if (!mongoose.Types.ObjectId.isValid(cvId)) {
+            return res.status(400).json({ message: "Invalid CV ID" });
+        }
+
+        const cv = await CV.findById(cvId);
+        if (!cv) {
+            return res.status(404).json({ message: "CV not found" });
+        }
+
+        const posts = await Post.find({ status: "PUBLISHED" });
+
+        const normalize = (str) =>
+            str?.toString().toLowerCase().trim();
+
+        const postResults = [];
+
+        for (let post of posts) {
+
+            const cvSkills = [
+                ...(cv.skills?.programmingLanguages || []),
+                ...(cv.skills?.frameworks || []),
+                ...(cv.skills?.tools || []),
+            ].map(normalize);
+
+            const postSkills = [
+                ...(post.skills?.programmingLanguages || []),
+                ...(post.skills?.frameworks || []),
+                ...(post.skills?.tools || []),
+            ].map(normalize);
+
+            let skillScore = 0;
+
+            if (postSkills.length > 0) {
+                const matched = postSkills.filter(skill =>
+                    cvSkills.includes(skill)
+                );
+
+                skillScore =
+                    (matched.length / postSkills.length) * 100;
+            }
+
+            const experienceScore = 100;
+
+            let majorScore = 0;
+            if (post.major && cv.major) {
+                if (normalize(post.major) === normalize(cv.major)) {
+                    majorScore = 100;
+                }
+            }
+
+            let gpaScore = 0;
+            if (post.minimumGPA) {
+                gpaScore =
+                    cv.GPA >= post.minimumGPA ? 100 : 0;
+            }
+
+            const score =
+                (skillScore +
+                    experienceScore +
+                    majorScore +
+                    gpaScore) / 4;
+
+            postResults.push({
+                postId: post._id,
+                title: post.title,   // 🔥 THÊM DÒNG NÀY
+                score: Math.round(score),
+                skillScore: Math.round(skillScore),
+                majorScore,
+                experienceScore,
+                gpaScore,
+            });
+        }
+
+        const totalScore = postResults.reduce(
+            (sum, p) => sum + p.score,
+            0
+        );
+
+        const profileScore =
+            postResults.length > 0
+                ? totalScore / postResults.length
+                : 0;
+
+        res.json({
+            profileScore: Math.round(profileScore),
+            posts: postResults,
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
+/*
+=====================================================
+GET /api/student/parsed/:id
+=====================================================
+*/
+
+exports.getParsedCV = async (req, res) => {
+    try {
+        const parsed = await ParsedCV.findById(req.params.id)
+            .populate("posts.postId", "title companyName");
+
+        if (!parsed)
+            return res.status(404).json({ message: "No parsed CV" });
+
+        res.json(parsed);
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+};

@@ -1,17 +1,26 @@
 const mongoose = require("mongoose");
 
-const InternshipSchema = new mongoose.Schema(
-    {
-        title: {
-            type: String,
-            required: true
-        },
-
-        appliedCount: {
-            type: Number,
-            default: 0
-        }
+const appliedSchema = new mongoose.Schema({
+    studentId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     },
-    { timestamps: true }
-);
-module.exports = mongoose.model("Internship", InternshipSchema);
+
+    cvId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "CV"
+    },
+
+    postId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "InternshipPost"
+    },
+
+    skillScore: Number,
+    experienceScore: Number,
+    educationScore: Number,
+
+    matchScore: Number
+}, { timestamps: true });
+
+module.exports = mongoose.model("AppliedInternship", appliedSchema);

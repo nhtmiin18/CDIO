@@ -28,7 +28,6 @@ import SystemReportScreen from "./Screens/SystemReportScreen.jsx";
 import InternshipPostManagement from "./Screens/InternshipPostManagement.jsx";
 
 /* ===== TYPES ===== */
-
 export type Role = "student" | "recruiter" | "admin" | null;
 
 export type Screen =
@@ -36,21 +35,18 @@ export type Screen =
     | "forgot-password"
     | "role"
     | "register"
-
     | "student-dashboard"
     | "student-profile"
     | "upload-cv"
     | "internship-post-detail"
     | "student-cv-parsing"
     | "student-notifications"
-
     | "recruiter-dashboard"
     | "create-internship-post"
     | "recommended"
     | "recruiter-posts"
     | "student-profile-view"
     | "recruiter-notifications"
-
     | "admin-dashboard"
     | "admin-user-management"
     | "admin-internship-posts"
@@ -67,17 +63,16 @@ type Student = {
 };
 
 function App() {
-
-    const [screen, setScreen] = useState<Screen>("recruiter-dashboard");
+    const [screen, setScreen] = useState<Screen>("login");
     const [role, setRole] = useState<Role>(null);
+    const [userId, setUserId] = useState<string | null>(null);
     const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
 
     const logout = () => {
         setRole(null);
+        setUserId(null);
         setScreen("login");
     };
-
-    /* ===== STUDENT NAV ===== */
 
     const studentNav = {
         onViewDashboard: () => setScreen("student-dashboard"),
@@ -89,8 +84,6 @@ function App() {
         onLogout: logout,
     };
 
-    /* ===== RECRUITER NAV ===== */
-
     const recruiterNav = {
         onViewDashboard: () => setScreen("recruiter-dashboard"),
         onCreatePost: () => setScreen("create-internship-post"),
@@ -101,8 +94,6 @@ function App() {
         onLogout: logout,
     };
 
-    /* ===== ADMIN NAV ===== */
-
     const adminNav = {
         onViewDashboard: () => setScreen("admin-dashboard"),
         onViewUserManagement: () => setScreen("admin-user-management"),
@@ -112,12 +103,15 @@ function App() {
         onLogout: logout,
     };
 
-    /* ===== RENDER ===== */
-
     switch (screen) {
-
         case "login":
-            return <LoginScreen setScreen={setScreen} />;
+            return (
+                <LoginScreen
+                    setScreen={setScreen}
+                    setRole={setRole}
+                    setUserId={setUserId}
+                />
+            );
 
         case "forgot-password":
             return <ForgotPasswordScreen onBack={() => setScreen("login")} />;
@@ -128,8 +122,6 @@ function App() {
         case "register":
             if (!role) return null;
             return <RegisterScreen role={role} onBack={() => setScreen("role")} />;
-
-        /* ===== STUDENT ===== */
 
         case "student-dashboard":
             return <StudentDashboard {...studentNav} />;
@@ -144,12 +136,20 @@ function App() {
             return <InternshipPostDetail {...studentNav} />;
 
         case "student-cv-parsing":
-            return <CVParsingScreen {...studentNav} />;
+            return (
+                <CVParsingScreen
+                    {...studentNav}
+                    userId={userId}
+                />
+            );
 
         case "student-notifications":
-            return <NotificationsScreen onBack={() => setScreen("student-dashboard")} onLogout={logout} />;
-
-        /* ===== RECRUITER ===== */
+            return (
+                <NotificationsScreen
+                    onBack={() => setScreen("student-dashboard")}
+                    onLogout={logout}
+                />
+            );
 
         case "recruiter-dashboard":
             return <RecruiterDashboard {...recruiterNav} />;
@@ -181,9 +181,12 @@ function App() {
             );
 
         case "recruiter-notifications":
-            return <NotificationsScreen onBack={() => setScreen("recruiter-dashboard")} onLogout={logout} />;
-
-        /* ===== ADMIN ===== */
+            return (
+                <NotificationsScreen
+                    onBack={() => setScreen("recruiter-dashboard")}
+                    onLogout={logout}
+                />
+            );
 
         case "admin-dashboard":
             return <AdminDashboard {...adminNav} />;
@@ -198,7 +201,12 @@ function App() {
             return <SystemReportScreen {...adminNav} />;
 
         case "admin-notifications":
-            return <NotificationsScreen onBack={() => setScreen("admin-dashboard")} onLogout={logout} />;
+            return (
+                <NotificationsScreen
+                    onBack={() => setScreen("admin-dashboard")}
+                    onLogout={logout}
+                />
+            );
 
         default:
             return null;

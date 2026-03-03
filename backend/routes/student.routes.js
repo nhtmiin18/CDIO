@@ -4,14 +4,93 @@ const mongoose = require("mongoose");
 
 const CV = require("../models/CV");
 const Post = require("../models/InternshipPost");
+const User = require("../models/User");
+
+/*
+========================================
+GET STUDENT PROFILE
+GET /api/students/:userId
+========================================
+*/
+router.get("/:userId", async (req, res) => {
+    try {
+        const { userId } = req.params;
+
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
+            return res.status(400).json({ message: "Invalid user id" });
+        }
+
+        // ❗ Không trả password
+        const user = await User.findById(userId).select("-password");
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.json(user);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
+
+/*
+========================================
+UPDATE STUDENT PROFILE
+PUT /api/students/:userId
+========================================
+*/
+router.put("/:userId", async (req, res) => {
+    try {
+        const { userId } = req.params;
+
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
+            return res.status(400).json({ message: "Invalid user id" });
+        }
+
+        const {
+            fullName,
+            email,
+            university,
+            major,
+            phone,
+            address
+        } = req.body;
+
+        const updatedUser = await User.findByIdAndUpdate(
+            userId,
+            {
+                fullName,
+                email,
+                university,
+                major,
+                phone,
+                address
+            },
+            { new: true }
+        ).select("-password"); // ❗ Không trả password
+
+        if (!updatedUser) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        res.json(updatedUser);
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
 
 /*
 ========================================
 GET PARSE RESULT
-GET /api/student/parse/:userId
+GET /api/students/parse/:userId
 ========================================
 */
-
 router.get("/parse/:userId", async (req, res) => {
     try {
         const { userId } = req.params;
@@ -20,7 +99,7 @@ router.get("/parse/:userId", async (req, res) => {
             return res.status(400).json({ message: "Invalid user id" });
         }
 
-        const cv = await CV.findOne({ _id: userId });
+        const cv = await CV.findById(userId);
 
         if (!cv) {
             return res.status(404).json({ message: "CV not found" });
@@ -112,4 +191,20 @@ router.get("/parse/:userId", async (req, res) => {
     }
 });
 
+router.put("/:id/photo", upload.single("photo"), async (req, res) => {
+    try {
+        const student = await Student.findById(req.params.id);
+
+        if (!student) {
+            return res.status(404).json({ message: "Not found" });
+        }
+
+        student.photo = req.file.path;
+        await student.save();
+
+        res.json(student);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 module.exports = router;

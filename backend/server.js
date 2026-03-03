@@ -27,4 +27,8 @@ app.use("/api/cv", cvRoutes);
 
 app.use("/api/posts", postRoutes);
 
+const studentRoutes = require("./routes/student.routes");
+app.use("/api/students", studentRoutes);
+app.use("/uploads", express.static("uploads"));
+
 module.exports = app;

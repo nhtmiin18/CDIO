@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({
     storage,
-    limits: { fileSize: 5 * 1024 * 1024 }, // 5MB
+    limits: { fileSize: 5 * 1024 * 1024 },
     fileFilter: (req, file, cb) => {
         if (file.mimetype !== "application/pdf") {
             cb(new Error("Only PDF files are allowed"));
@@ -37,10 +37,8 @@ const upload = multer({
 /*
 ========================================
 GET CV BY _id
-GET /api/cv/:_id
 ========================================
 */
-
 router.get("/:_id", async (req, res) => {
     try {
         const { _id } = req.params;
@@ -66,118 +64,137 @@ router.get("/:_id", async (req, res) => {
 /*
 ========================================
 UPLOAD & PARSE CV
-POST /api/cv/upload
 ========================================
 */
-
 router.post("/upload", upload.single("cv"), async (req, res) => {
     try {
-
         const file = req.file;
         const { _id } = req.body;
 
-        if (!file) {
+        if (!file)
             return res.status(400).json({ message: "No file uploaded" });
-        }
 
         if (!_id || !mongoose.Types.ObjectId.isValid(_id)) {
-            fs.unlinkSync(file.path);
+            if (file?.path && fs.existsSync(file.path))
+                fs.unlinkSync(file.path);
             return res.status(400).json({ message: "Invalid user id" });
         }
 
-        // ===== GET USER FROM DB =====
         const user = await User.findById(_id);
-
         if (!user) {
             fs.unlinkSync(file.path);
             return res.status(404).json({ message: "User not found" });
         }
 
-        // ===== READ PDF =====
-        const dataBuffer = fs.readFileSync(file.path);
-        const data = await pdfParse(dataBuffer);
+        /* =========================
+           READ PDF
+        ========================== */
+        const buffer = fs.readFileSync(file.path);
+        const data = await pdfParse(buffer);
         const text = data.text;
 
-        // ===== CHECK FULL NAME =====
-        const lines = text.split("\n").filter(l => l.trim() !== "");
-        const extractedName = lines.length > 0 ? lines[0].trim() : "";
+        // DEBUG nếu cần
+        // console.log("PDF TEXT:", text);
 
-        if (extractedName !== user.fullName.trim()) {
-            fs.unlinkSync(file.path);
-            return res.status(400).json({
-                message: "Full name in CV does not match account"
-            });
-        }
+        /* =========================
+           EXTRACT MAJOR (VN + EN)
+        ========================== */
+        const majorMatch = text.match(/(Major|Chuyên ngành):\s*(.+?)(\||\n)/i);
+        const major = majorMatch ? majorMatch[2].trim() : "";
 
-        /*
-        ========================================
-        EXTRACT DATA
-        ========================================
-        */
-
-        // ===== MAJOR =====
-        const majorMatch = text.match(/(Computer Science|Khoa Học Máy Tính)/i);
-        const major = majorMatch ? majorMatch[0] : "";
-
-        // ===== GPA =====
-        const gpaMatch = text.match(/GPA[:\s]*([0-4]\.\d+)/i);
+        /* =========================
+           EXTRACT GPA
+        ========================== */
+        const gpaMatch = text.match(/GPA:\s*([\d.]+)/i);
         const GPA = gpaMatch ? parseFloat(gpaMatch[1]) : 0;
 
-        // ===== EXPERIENCE =====
-        const expMatch = text.match(/(\d+)\s+(year|năm)/i);
-        const experiences = expMatch ? parseInt(expMatch[1]) : 0;
+        /* =========================
+           EXTRACT EXPERIENCE (năm)
+        ========================== */
+        let experiences = 0;
+        const expMatch = text.match(/(\d+)\s*năm/i);
+        if (expMatch) {
+            experiences = parseInt(expMatch[1]);
+        }
 
-        // ===== SKILLS DICTIONARY =====
-        const skillDict = {
-            programmingLanguages: ["JavaScript", "Python", "Java", "C++", "C#"],
-            frameworks: ["React", "Spring Boot", "Node.js", "Express"],
-            tools: ["Git", "MySQL", "MongoDB", "Docker"]
-        };
+        /* =========================
+           SKILLS (LUÔN ĐÚNG STRUCTURE)
+        ========================== */
 
         const skills = {
-            programmingLanguages: skillDict.programmingLanguages.filter(s => text.includes(s)),
-            frameworks: skillDict.frameworks.filter(s => text.includes(s)),
-            tools: skillDict.tools.filter(s => text.includes(s))
+            programmingLanguages: [],
+            frameworks: [],
+            tools: []
         };
 
-        // ===== SAVE CV (USING USER _id) =====
+        // Programming Languages
+        const langMatch = text.match(
+            /(Programming Languages|Ngôn ngữ lập trình):\s*(.+)/i
+        );
+        if (langMatch) {
+            skills.programmingLanguages = langMatch[2]
+                .split(",")
+                .map(s => s.trim());
+        }
+
+        // Frameworks
+        const frameworkMatch = text.match(
+            /(Frameworks|Framework):\s*(.+)/i
+        );
+        if (frameworkMatch) {
+            skills.frameworks = frameworkMatch[2]
+                .split(",")
+                .map(s => s.trim());
+        }
+
+        // Tools
+        const toolsMatch = text.match(
+            /(Tools|Công cụ):\s*(.+)/i
+        );
+        if (toolsMatch) {
+            skills.tools = toolsMatch[2]
+                .split(",")
+                .map(s => s.trim());
+        }
+
+        /* =========================
+           SAVE TO DB
+        ========================== */
+
         const cv = await CV.findByIdAndUpdate(
             _id,
             {
                 _id,
                 fullName: user.fullName,
                 major,
-                skills,
                 experiences,
-                GPA
+                GPA,
+                skills
             },
             { upsert: true, new: true }
         );
 
-        // ===== DELETE FILE AFTER PARSE =====
-        fs.unlinkSync(file.path);
+        if (fs.existsSync(file.path))
+            fs.unlinkSync(file.path);
 
         res.json(cv);
 
     } catch (error) {
 
-        console.error(error);
+        console.error("Upload error:", error);
 
-        if (req.file?.path && fs.existsSync(req.file.path)) {
+        if (req.file?.path && fs.existsSync(req.file.path))
             fs.unlinkSync(req.file.path);
-        }
 
-        res.status(500).json({ message: error.message || "Server error" });
+        res.status(500).json({ message: error.message });
     }
 });
 
 /*
 ========================================
 DELETE CV
-DELETE /api/cv/:_id
 ========================================
 */
-
 router.delete("/:_id", async (req, res) => {
     try {
         const { _id } = req.params;

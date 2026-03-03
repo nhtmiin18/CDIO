@@ -41,7 +41,21 @@ export default function UploadCVScreen({
     const fileInputRef = useRef<HTMLInputElement | null>(null);
 
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
-    const [currentCV, setCurrentCV] = useState<CV | null>(null);
+
+    // ✅ KHỞI TẠO DEFAULT OBJECT → KHÔNG BAO GIỜ CRASH
+    const [currentCV, setCurrentCV] = useState<CV>({
+        _id: "",
+        fullName: "",
+        major: "",
+        experiences: 0,
+        GPA: 0,
+        skills: {
+            programmingLanguages: [],
+            frameworks: [],
+            tools: []
+        }
+    });
+
     const [loading, setLoading] = useState(false);
 
     const user = JSON.parse(localStorage.getItem("user") || "null");
@@ -52,9 +66,31 @@ export default function UploadCVScreen({
                 const res = await axios.get<CV>(
                     `http://localhost:5000/api/cv/${user._id}`
                 );
-                setCurrentCV(res.data);
+
+                // đảm bảo skills luôn tồn tại
+                setCurrentCV({
+                    ...res.data,
+                    skills: {
+                        programmingLanguages: res.data.skills?.programmingLanguages || [],
+                        frameworks: res.data.skills?.frameworks || [],
+                        tools: res.data.skills?.tools || [],
+                    }
+                });
+
             } catch {
-                setCurrentCV(null);
+                // nếu chưa có CV thì reset về default
+                setCurrentCV({
+                    _id: "",
+                    fullName: "",
+                    major: "",
+                    experiences: 0,
+                    GPA: 0,
+                    skills: {
+                        programmingLanguages: [],
+                        frameworks: [],
+                        tools: []
+                    }
+                });
             }
         };
 
@@ -114,9 +150,17 @@ export default function UploadCVScreen({
                 }
             );
 
-            setCurrentCV(res.data);
-            setSelectedFile(null);
+            // đảm bảo skills luôn có
+            setCurrentCV({
+                ...res.data,
+                skills: {
+                    programmingLanguages: res.data.skills?.programmingLanguages || [],
+                    frameworks: res.data.skills?.frameworks || [],
+                    tools: res.data.skills?.tools || [],
+                }
+            });
 
+            setSelectedFile(null);
             alert("Upload & Parse thành công!");
 
         } catch (error) {
@@ -167,9 +211,7 @@ export default function UploadCVScreen({
                         {selectedFile && (
                             <div className="mb-4 flex justify-center">
                                 <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-lg shadow text-sm">
-                                    <span className="text-gray-700">
-                                        {selectedFile.name}
-                                    </span>
+                                    <span>{selectedFile.name}</span>
                                     <button
                                         onClick={handleRemoveFile}
                                         className="text-red-500 font-bold hover:text-red-700"
@@ -199,55 +241,36 @@ export default function UploadCVScreen({
                     </div>
                 </div>
 
-                {/* CV Display Card */}
-                {currentCV && (
+                {/* CV Display */}
+                {currentCV._id && (
                     <div className="bg-white rounded-2xl border shadow-sm p-8">
-
-                        {/* TITLE */}
-                        <h2 className="text-2xl font-bold text-slate-800 mb-8">
+                        <h2 className="text-2xl font-bold mb-8">
                             CV Extract Information
                         </h2>
 
                         <div className="grid md:grid-cols-2 gap-12">
 
-                            {/* LEFT SIDE */}
                             <div className="space-y-8">
-
                                 <div>
-                                    <h3 className="text-xl font-bold text-slate-800 mb-2">
-                                        Major
-                                    </h3>
-                                    <div className="text-lg text-gray-700">
-                                        {currentCV.major}
-                                    </div>
+                                    <h3 className="font-bold mb-2">Major</h3>
+                                    <div>{currentCV.major}</div>
                                 </div>
 
                                 <div>
-                                    <h3 className="text-xl font-bold text-slate-800 mb-2">
-                                        GPA
-                                    </h3>
-                                    <div className="text-lg text-green-600 font-semibold">
+                                    <h3 className="font-bold mb-2">GPA</h3>
+                                    <div className="text-green-600 font-semibold">
                                         {currentCV.GPA}
                                     </div>
                                 </div>
 
                                 <div>
-                                    <h3 className="text-xl font-bold text-slate-800 mb-2">
-                                        Experiences
-                                    </h3>
-                                    <div className="text-lg text-gray-700">
-                                        {currentCV.experiences} years
-                                    </div>
+                                    <h3 className="font-bold mb-2">Experiences</h3>
+                                    <div>{currentCV.experiences} years</div>
                                 </div>
-
                             </div>
 
-                            {/* RIGHT SIDE */}
                             <div className="space-y-6">
-
-                                <h3 className="text-xl font-bold text-slate-800">
-                                    Skills
-                                </h3>
+                                <h3 className="font-bold">Skills</h3>
 
                                 <div>
                                     <div className="text-sm text-gray-500 mb-2">
@@ -255,10 +278,7 @@ export default function UploadCVScreen({
                                     </div>
                                     <div className="flex flex-wrap gap-2">
                                         {currentCV.skills.programmingLanguages.map((skill, index) => (
-                                            <span
-                                                key={index}
-                                                className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
-                                            >
+                                            <span key={index} className="px-3 py-1 bg-blue-100 rounded-full text-sm">
                                                 {skill}
                                             </span>
                                         ))}
@@ -271,10 +291,7 @@ export default function UploadCVScreen({
                                     </div>
                                     <div className="flex flex-wrap gap-2">
                                         {currentCV.skills.frameworks.map((skill, index) => (
-                                            <span
-                                                key={index}
-                                                className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm"
-                                            >
+                                            <span key={index} className="px-3 py-1 bg-purple-100 rounded-full text-sm">
                                                 {skill}
                                             </span>
                                         ))}
@@ -287,10 +304,7 @@ export default function UploadCVScreen({
                                     </div>
                                     <div className="flex flex-wrap gap-2">
                                         {currentCV.skills.tools.map((skill, index) => (
-                                            <span
-                                                key={index}
-                                                className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm"
-                                            >
+                                            <span key={index} className="px-3 py-1 bg-orange-100 rounded-full text-sm">
                                                 {skill}
                                             </span>
                                         ))}

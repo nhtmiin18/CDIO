@@ -19,7 +19,7 @@ export default function StudentProfileView({
                 onClickNotification={onClickNotification}
                 notificationCount={unreadCount}
                 showBack={true}
-                onBack={onBack}        // 👈 BACK VỀ RECOMMENDED
+                onBack={onBack}
                 onLogout={onLogout}
             />
 

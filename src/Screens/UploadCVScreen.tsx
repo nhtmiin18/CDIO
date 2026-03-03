@@ -30,6 +30,7 @@ export default function UploadCVScreen({
             <AppHeader
                 title="ISRS – Upload CV"
                 onClickNotification={onClickNotification}
+                user={JSON.parse(localStorage.getItem("user") || "null")}
                 notificationCount={unreadCount}
                 onLogout={onLogout}
             />

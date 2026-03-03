@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const cvRoutes = require("./routes/cv.routes");
+const postRoutes = require("./routes/post.routes");
 
 const app = express();
 
@@ -23,5 +24,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/cv", cvRoutes);
+
+app.use("/api/posts", postRoutes);
 
 module.exports = app;

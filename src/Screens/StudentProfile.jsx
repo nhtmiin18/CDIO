@@ -27,6 +27,7 @@ export default function CVParsingScreen({
             <AppHeader
                 title="ISRS – My Profile"
                 onClickNotification={onClickNotification}
+                user={JSON.parse(localStorage.getItem("user") || "null")}
                 notificationCount={unreadCount}
                 onLogout={onLogout}
             />

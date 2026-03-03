@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const CV = require("../models/CV");
 const Post = require("../models/InternshipPost");
 const User = require("../models/User");
-
+const { upload } = require("../middleware/upload");
 /*
 ========================================
 GET STUDENT PROFILE

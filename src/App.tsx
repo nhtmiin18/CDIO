@@ -66,7 +66,6 @@ function App() {
     const [screen, setScreen] = useState<Screen>("login");
     const [role, setRole] = useState<Role>(null);
 
-    // 🔥 ĐỔI TÊN STATE
     const [_id, setId] = useState<string | null>(null);
 
     const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
@@ -112,7 +111,7 @@ function App() {
                 <LoginScreen
                     setScreen={setScreen}
                     setRole={setRole}
-                    setUserId={setId}   // 🔥 vẫn dùng setUserId nếu LoginScreen yêu cầu
+                    setUserId={setId}   
                 />
             );
 

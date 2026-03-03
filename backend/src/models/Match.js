@@ -22,7 +22,9 @@ const matchSchema = new mongoose.Schema({
   },
 
   matchedSkills: [String],
-  missingSkills: [String]
+  missingSkills: [String],
+
+  
 
 }, { timestamps: true })
 

@@ -1,4 +1,5 @@
 import Post from "../models/Post.js";
+import Match from "../models/Match.js";
 
 // SAVE DRAFT
 export const saveDraft = async (req, res) => {
@@ -306,5 +307,47 @@ export const updatePost = async (req, res) => {
     res.json(updated);
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+};
+
+
+
+export const getRecruiterStats = async (req, res) => {
+  try {
+    const recruiterId = req.params.recruiterId;
+
+    // Lấy posts của recruiter
+    const posts = await Post.find({ recruiterId });
+
+    const postIds = posts.map(p => p._id);
+
+    // Lấy matches theo postId
+    const matches = await Match.find({
+      postId: { $in: postIds }
+    });
+
+    const totalMatches = matches.length;
+
+    const shortlisted = matches.filter(
+      m => m.status === "PENDING"
+    ).length;
+
+    const avgMatchScore =
+      totalMatches > 0
+        ? Math.round(
+            matches.reduce((sum, m) => sum + m.matchScore, 0) /
+            totalMatches
+          )
+        : 0;
+
+    res.json({
+      activePosts: posts.length,
+      totalMatches,
+      shortlisted,
+      avgMatchScore
+    });
+
+  } catch (err) {
+    res.status(500).json({ message: err.message });
   }
 };

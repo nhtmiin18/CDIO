@@ -37,6 +37,10 @@ const [tools, setTools] = useState([
   "AWS"
 ]);
 
+// TODO: sau này lấy recruiterId từ token
+  const user = JSON.parse(localStorage.getItem("user"));
+const recruiterId = user.id;
+
 const [newLanguage, setNewLanguage] = useState("");
 const [newFramework, setNewFramework] = useState("");
 const [newTool, setNewTool] = useState("");
@@ -254,9 +258,11 @@ const removeItem = (index, list, setList) => {
             <span className="notification-count">3</span>
           </div>
           <div className="user-profile">
-            <div className="avatar">SJ</div>
+            <div className="avatar">👤</div>
             <div className="user-info">
-              <span className="user-name">Sarah Johnson</span>
+              <span className="user-name">
+              {user?.companyName || "Loading..."}
+            </span>
               <span className="user-role">Recruiter</span>
             </div>
             <span className="dropdown" onClick={onLogout}>▼</span>
@@ -277,12 +283,12 @@ const removeItem = (index, list, setList) => {
               <span>My Posts</span>
             </div>
 
-            <div className="menu-item" onClick={onViewRecommended}>
+            {/* <div className="menu-item" onClick={onViewRecommended}>
               <span className="menu-icon">👥</span>
               <span>Matched Students</span>
-            </div>
+            </div> */}
 
-            <div className="menu-item">
+            {/* <div className="menu-item">
               <span className="menu-icon">💬</span>
               <span>Messages</span>
             </div>
@@ -295,7 +301,7 @@ const removeItem = (index, list, setList) => {
             <div className="menu-item download">
               <span className="menu-icon">📥</span>
               <span>Download</span>
-            </div>
+            </div> */}
           </div>
         </div>
 

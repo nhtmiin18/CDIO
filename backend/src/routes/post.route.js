@@ -7,6 +7,7 @@ import {
   getActivePostCount, 
   getPostById,
   updatePost,
+  getRecruiterStats,
 } from "../controllers/post.controller.js";
 import { protect } from "../middleware/auth.middleware.js";
 
@@ -22,7 +23,7 @@ router.get("/", getAllPosts);
 router.get("/count", protect, getActivePostCount);
 router.get("/:id", protect, getPostById);
 router.put("/:id", protect, updatePost);
-
+router.get("/stats/:recruiterId", getRecruiterStats);
 
 
 

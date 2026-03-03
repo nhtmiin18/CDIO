@@ -9,6 +9,9 @@ export const getAllPosts = () => {
 export const getRecruiterPosts = (recruiterId) => {
   return axiosClient.get(`/posts/recruiter/${recruiterId}`);
 };
+export const getRecruiterStats = (recruiterId) => {
+  return axiosClient.get(`/posts/stats/${recruiterId}`);
+};
 export const getPostById = (id) => {
   return fetch(`/api/posts/${id}`, {
     credentials: "include",

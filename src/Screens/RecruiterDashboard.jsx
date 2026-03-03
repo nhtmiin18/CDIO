@@ -9,7 +9,7 @@ import { getUnreadCount } from "../components/notificationsHelper";
 import { getRecruiterPosts } from "../api/postApi";
 import { getAllPosts } from "../api/postApi";
 import { useNavigate } from "react-router-dom";
-
+import { getRecruiterStats } from "../api/postApi";
 
 
 function ReguiterDashboard({
@@ -86,6 +86,27 @@ const visiblePosts = showAll
   ? filteredPosts
   : filteredPosts.slice(0, 1);
 
+  const [stats, setStats] = useState({
+  activePosts: 0,
+  totalMatches: 0,
+  shortlisted: 0,
+  avgMatchScore: 0,
+});
+
+useEffect(() => {
+  const fetchStats = async () => {
+    try {
+      const res = await getRecruiterStats(recruiterId);
+      setStats(res.data);
+    } catch (err) {
+      console.error("Failed to fetch stats", err);
+    }
+  };
+
+  if (recruiterId) fetchStats();
+}, [recruiterId]);
+   
+
   return (
     <div className="recruiter-dashboard">
       {/* ===== TOP HEADER ===== */}
@@ -138,9 +159,9 @@ const visiblePosts = showAll
             <li className="nav-item" onClick={onViewPost}>
               📝 My Posts
             </li>
-            <li className="nav-item" onClick={onViewRecommended}>
+            {/* <li className="nav-item" onClick={onViewRecommended}>
               👥 Matched Students
-            </li>
+            </li> */}
             {/* <li className="nav-item">💬 Messages</li>
             <li className="nav-item">⚙️ Settings</li> */}
           </ul>
@@ -150,11 +171,11 @@ const visiblePosts = showAll
         <main className="main-content .recruiter-dashboard ">
           {/* ===== STATS ===== */}
           <div className="stats-grid">
-            <StatCard value={posts.length} label="Active Posts" />
-            <StatCard value="142" label="Total Matches" />
-            <StatCard value="28" label="Shortlisted" />
-            <StatCard value="89%" label="Avg Match Score" />
-          </div>
+  <StatCard value={stats.activePosts} label="Active Posts" />
+  <StatCard value={stats.totalMatches} label="Total Matches" />
+  {/* <StatCard value={stats.shortlisted} label="Shortlisted" /> */}
+  <StatCard value={`${stats.avgMatchScore}%`} label="Avg Match Score" />
+</div>
 
           <div className="content-grid">
             {/* ===== LEFT COLUMN ===== */}
@@ -211,9 +232,9 @@ const visiblePosts = showAll
                   VIEW ALL MATCHES
                 </button> */}
 
-                <button className="btn btn-action">
+                {/* <button className="btn btn-action">
                   SHORTLISTED STUDENTS
-                </button>
+                </button> */}
 
                 {/* <button className="btn btn-action">MESSAGES</button> */}
               </section>
@@ -323,9 +344,9 @@ function PostItem({ post, onViewPost, onViewMatches, onEdit }) {
         <button className="btn btn-primary" onClick={ () => onViewMatches(post._id)}>
           VIEW MATCHES
         </button>
-        <button className="btn btn-outline" onClick={() => onCreatePost(post._id)}>
+        {/* <button className="btn btn-outline" onClick={() => onCreatePost(post._id)}>
           EDIT
-        </button>
+        </button> */}
       </div>
     </div>
   );

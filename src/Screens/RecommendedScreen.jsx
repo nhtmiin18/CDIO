@@ -19,21 +19,7 @@ const [loading, setLoading] = useState(true);
 // const location = useLocation();
 const selectedPostId = location.state?.selectedPostId;
 
-// useEffect(() => {
-//   const fetchMatchedStudents = async () => {
-//     try {
-//     //   const postId = "69797dc030ba026328c8b670"; // thay bằng id thật
-//       const res = await axios.get(`/matches/post/${postId}`);
-//       setStudents(res.data);
-//     } catch (error) {
-//       console.error("Error fetching matches:", error);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
 
-//   fetchMatchedStudents();
-// }, []);
 
 useEffect(() => {
     console.log("POST ID:", postId);  // 👈 thêm dòng này
@@ -54,21 +40,7 @@ useEffect(() => {
   fetchMatchedStudents();
 }, [postId]);
 
-// useEffect(() => {
-//   if (!selectedPostId) return;
 
-//   console.log("FETCHING MATCH FOR:", selectedPostId);
-
-//   axios
-//     .get(`/matches/post/${selectedPostId}`)
-//     .then((res) => {
-//       console.log("API RETURNED:", res.data);
-//       setStudents(res.data);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//     });
-// }, [selectedPostId]);
 
 
 

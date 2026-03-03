@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema(
   tools: [String]
     } ,
     year: Number,   
-    certifications: [String],
+    certifications: [String], 
     gpa:Number,
 
     // RECRUITER

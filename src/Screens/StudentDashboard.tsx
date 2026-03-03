@@ -6,6 +6,8 @@ import { getUnreadCount } from "../components/notificationsHelper";
 import StudentTabBar from "../components/StudentTabBar";
 
 type Props = {
+    _id: string | null;
+
     onClickNotification: () => void;
     onUploadCV: () => void;
     onLogout: () => void;
@@ -15,8 +17,9 @@ type Props = {
     onViewDashboard: () => void;
 };
 
+export default function StudentDashboard({
+    _id,   // ✅ thêm dòng này
 
-export default function UploadCVScreen({
     onClickNotification,
     onUploadCV,
     onLogout,
@@ -25,6 +28,7 @@ export default function UploadCVScreen({
     onViewCVParsing,
     onViewProfile,
 }: Props) {
+
     const unreadCount = getUnreadCount();
 
     return (
@@ -32,6 +36,7 @@ export default function UploadCVScreen({
 
             <AppHeader
                 title="ISRS – Student Dashboard"
+                user={JSON.parse(localStorage.getItem("user") || "null")}
                 onClickNotification={onClickNotification}
                 notificationCount={unreadCount}
                 onLogout={onLogout}
@@ -55,6 +60,12 @@ export default function UploadCVScreen({
                     <p className="text-slate-500">
                         Your personalized internship dashboard
                     </p>
+
+                    {_id && (
+                        <p className="text-xs text-slate-400 mt-2">
+                            User ID: {_id}
+                        </p>
+                    )}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

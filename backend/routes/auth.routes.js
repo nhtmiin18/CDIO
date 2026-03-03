@@ -20,11 +20,14 @@ router.post("/login", async (req, res) => {
         res.json({
             success: true,
             user: {
-                id: user._id,      
+                _id: user._id,  
                 role: user.role,
-                email: user.email
+                email: user.email,
+                fullName: user.fullName || null,
+                companyName: user.companyName || null
             }
         });
+
     } catch (err) {
         res.status(500).json({ message: err.message });
     }

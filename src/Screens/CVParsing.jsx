@@ -5,6 +5,8 @@ import StudentTabBar from "../components/StudentTabBar";
 import { getUnreadCount } from "../components/notificationsHelper";
 
 const CVParsing = ({
+    _id,   // ✅ thêm dòng này
+
     onViewDashboard,
     onViewProfile,
     onUploadCV,
@@ -13,6 +15,7 @@ const CVParsing = ({
     onLogout,
     onClickNotification,
 }) => {
+
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -21,11 +24,15 @@ const CVParsing = ({
     useEffect(() => {
         const fetchParsed = async () => {
             try {
-                const user = JSON.parse(localStorage.getItem("user"));
-                const id = user.id;
+
+                if (!_id) {
+                    console.error("User ID not found");
+                    setLoading(false);
+                    return;
+                }
 
                 const res = await axios.get(
-                    `http://localhost:5000/api/student/parse/${id}`
+                    `http://localhost:5000/api/student/parse/${_id}`
                 );
 
                 setData(res.data);
@@ -41,7 +48,7 @@ const CVParsing = ({
         };
 
         fetchParsed();
-    }, []);
+    }, [_id]);
 
     if (loading)
         return (
@@ -59,8 +66,10 @@ const CVParsing = ({
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-100 to-slate-200 text-slate-800">
+
             <AppHeader
                 title="ISRS – CV Parsing Result"
+                user={JSON.parse(localStorage.getItem("user") || "null")}
                 onClickNotification={onClickNotification}
                 notificationCount={unreadCount}
                 onLogout={onLogout}
@@ -77,7 +86,6 @@ const CVParsing = ({
 
             <div className="max-w-6xl mx-auto p-8 space-y-8">
 
-                {/* PROFILE SCORE */}
                 <div className="bg-gradient-to-r from-indigo-600 to-slate-800 text-white rounded-2xl shadow-xl p-8">
                     <h2 className="text-sm uppercase tracking-wide opacity-80">
                         Profile Match Score
@@ -87,29 +95,31 @@ const CVParsing = ({
                     </div>
                 </div>
 
-                {/* POSTS GRID */}
                 <div className="grid md:grid-cols-2 gap-6">
                     {data.posts?.map((post, index) => (
                         <div
                             key={index}
                             className="bg-white rounded-2xl shadow-md p-6 border hover:shadow-xl transition"
                         >
-                            <h3 className="text-lg font-semibold mb-4">
-                                {post.title}
-                            </h3>
+                            <div className="mb-4">
+                                <h3 className="text-lg font-semibold">
+                                    {post.title}
+                                </h3>
+
+                                <p className="text-sm text-slate-500">
+                                    {post.companyName}
+                                </p>
+                            </div>
 
                             <ScoreBar label="Total Score" value={post.score} highlight />
-
                             <ScoreBar label="Skill Match" value={post.skillScore} />
-
                             <ScoreBar label="Major Match" value={post.majorScore} />
-
                             <ScoreBar label="Experience Match" value={post.experienceScore} />
-
                             <ScoreBar label="GPA Match" value={post.gpaScore} />
                         </div>
                     ))}
                 </div>
+
             </div>
         </div>
     );

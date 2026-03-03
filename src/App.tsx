@@ -65,12 +65,15 @@ type Student = {
 function App() {
     const [screen, setScreen] = useState<Screen>("login");
     const [role, setRole] = useState<Role>(null);
-    const [userId, setUserId] = useState<string | null>(null);
+
+    // 🔥 ĐỔI TÊN STATE
+    const [_id, setId] = useState<string | null>(null);
+
     const [selectedStudent, setSelectedStudent] = useState<Student | null>(null);
 
     const logout = () => {
         setRole(null);
-        setUserId(null);
+        setId(null);
         setScreen("login");
     };
 
@@ -109,7 +112,7 @@ function App() {
                 <LoginScreen
                     setScreen={setScreen}
                     setRole={setRole}
-                    setUserId={setUserId}
+                    setUserId={setId}   // 🔥 vẫn dùng setUserId nếu LoginScreen yêu cầu
                 />
             );
 
@@ -124,7 +127,20 @@ function App() {
             return <RegisterScreen role={role} onBack={() => setScreen("role")} />;
 
         case "student-dashboard":
-            return <StudentDashboard {...studentNav} />;
+            return (
+                <StudentDashboard
+                    {...studentNav}
+                    _id={_id}   
+                />
+            );
+
+        case "student-cv-parsing":
+            return (
+                <CVParsingScreen
+                    {...studentNav}
+                    _id={_id}   
+                />
+            );
 
         case "student-profile":
             return <StudentProfile {...studentNav} />;
@@ -134,14 +150,6 @@ function App() {
 
         case "internship-post-detail":
             return <InternshipPostDetail {...studentNav} />;
-
-        case "student-cv-parsing":
-            return (
-                <CVParsingScreen
-                    {...studentNav}
-                    userId={userId}
-                />
-            );
 
         case "student-notifications":
             return (

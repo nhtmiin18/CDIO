@@ -2,21 +2,47 @@
 
 const userSchema = new mongoose.Schema(
     {
-        name: String,
-        email: String,
-        password: String,
+        // ===== COMMON =====
         role: {
             type: String,
             enum: ["student", "recruiter", "admin"],
-            default: "student",
+            required: true,
         },
-        status: {
+
+        email: {
             type: String,
-            enum: ["active", "blocked"],
-            default: "active",
+            required: true,
+            unique: true,
         },
+
+        password: {
+            type: String,
+            required: true,
+        },
+
+        // ===== STUDENT =====
+        fullName: String,
+        phone: String,
+        cvFileUrl: String,
+        address: String,
+        major: String,
+        university: String,
+        gpa: Number,
+
+        skills: {
+            programmingLanguages: [String],
+            frameworks: [String],
+            tools: [String],
+        },
+
+        // ===== RECRUITER =====
+        companyName: String,
+        companyWebsite: String,
+        hrName: String,
     },
-    { timestamps: true }
+    {
+        timestamps: true, // tạo createdAt & updatedAt giống doc bạn gửi
+    }
 );
 
 module.exports = mongoose.model("User", userSchema);

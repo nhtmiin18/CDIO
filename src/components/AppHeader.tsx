@@ -1,19 +1,22 @@
-﻿import React from 'react';
+﻿import React from "react";
+
+type User = {
+    role: string;
+    fullName?: string;
+    companyName?: string;
+};
+
 type Props = {
     title: string;
-
-    // core
     onLogout: () => void;
+    user: User | null; 
 
-    // back
     showBack?: boolean;
     onBack?: () => void;
 
-    // notification
     onClickNotification?: () => void;
     notificationCount?: number;
 
-    // navigation buttons (CÁCH 2)
     onViewProfile?: () => void;
     onUploadCV?: () => void;
     onViewInternship?: () => void;
@@ -22,6 +25,7 @@ type Props = {
 export function AppHeader({
     title,
     onLogout,
+    user,
 
     showBack = false,
     onBack,
@@ -33,6 +37,25 @@ export function AppHeader({
     onUploadCV,
     onViewInternship,
 }: Props) {
+
+    let displayName = "";
+
+    if (user) {
+        if (user.role === "student") {
+            displayName = user.fullName ?? "";
+        }
+        else if (user.role === "recruiter") {
+            displayName = user.companyName ?? "";
+        }
+        else if (user.role === "admin") {
+            displayName = "Admin";
+        }
+    }
+
+    if (!displayName) {
+        displayName = "";
+    }
+
     return (
         <div className="bg-white shadow-sm px-8 py-4 flex justify-between items-center">
             {/* LEFT */}
@@ -53,7 +76,7 @@ export function AppHeader({
                 <span className="font-bold text-lg">{title}</span>
             </div>
 
-            {/* CENTER NAV (optional) */}
+            {/* CENTER NAV */}
             <div className="flex items-center gap-4">
                 {onViewProfile && (
                     <button
@@ -101,7 +124,7 @@ export function AppHeader({
 
                 <div className="flex items-center gap-2">
                     <div className="w-9 h-9 bg-slate-300 rounded-full" />
-                    <span className="font-medium">John Doe</span>
+                    <span className="font-medium">{displayName}</span>
                 </div>
 
                 <button
@@ -113,5 +136,6 @@ export function AppHeader({
             </div>
         </div>
     );
-} export default AppHeader;
+}
 
+export default AppHeader;

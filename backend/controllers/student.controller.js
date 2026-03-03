@@ -7,103 +7,85 @@ const ParsedCV = require("../models/ParsedCV");
 POST /api/student/parse/:id
 =====================================================
 */
-router.get("/parse/:cvId", async (req, res) => {
-    try {
-        const { cvId } = req.params;
 
-        if (!mongoose.Types.ObjectId.isValid(cvId)) {
-            return res.status(400).json({ message: "Invalid CV ID" });
-        }
+exports.parseCV = async (req, res) => {
+    try {
+        const cvId = req.params.id;
 
         const cv = await CV.findById(cvId);
-        if (!cv) {
-            return res.status(404).json({ message: "CV not found" });
-        }
+        if (!cv) return res.status(404).json({ message: "CV not found" });
 
-        const posts = await Post.find({ status: "PUBLISHED" });
+        const posts = await InternshipPost.find();
+        if (!posts.length)
+            return res.json({ message: "No posts" });
 
-        const normalize = (str) =>
-            str?.toString().toLowerCase().trim();
+        let postsResult = [];
 
-        const postResults = [];
+        for (const post of posts) {
 
-        for (let post of posts) {
+            let skillScore = 0;
 
             const cvSkills = [
                 ...(cv.skills?.programmingLanguages || []),
                 ...(cv.skills?.frameworks || []),
-                ...(cv.skills?.tools || []),
-            ].map(normalize);
+                ...(cv.skills?.tools || [])
+            ];
 
-            const postSkills = [
-                ...(post.skills?.programmingLanguages || []),
-                ...(post.skills?.frameworks || []),
-                ...(post.skills?.tools || []),
-            ].map(normalize);
-
-            let skillScore = 0;
-
-            if (postSkills.length > 0) {
-                const matched = postSkills.filter(skill =>
-                    cvSkills.includes(skill)
+            if (cvSkills.length && post.skills?.length) {
+                const matched = cvSkills.filter(s =>
+                    post.skills.includes(s)
                 );
-
-                skillScore =
-                    (matched.length / postSkills.length) * 100;
+                skillScore = (matched.length / post.skills.length) * 100;
             }
 
-            const experienceScore = 100;
+            let experienceScore = 0;
 
-            let majorScore = 0;
-            if (post.major && cv.major) {
-                if (normalize(post.major) === normalize(cv.major)) {
-                    majorScore = 100;
-                }
-            }
+            if (post.experience === "NO_EXPERIENCE")
+                experienceScore = cv.experiences === 0 ? 100 : 0;
 
-            let gpaScore = 0;
-            if (post.minimumGPA) {
-                gpaScore =
-                    cv.GPA >= post.minimumGPA ? 100 : 0;
-            }
+            if (post.experience === "SOME_EXPERIENCE")
+                experienceScore =
+                    cv.experiences > 0 && cv.experiences < 3 ? 100 : 0;
 
-            const score =
-                (skillScore +
-                    experienceScore +
-                    majorScore +
-                    gpaScore) / 4;
+            if (post.experience === "SPECIFIC_EXPERIENCE")
+                experienceScore = cv.experiences >= 3 ? 100 : 0;
 
-            postResults.push({
+            let gpaScore = 100;
+
+            const totalScore =
+                (skillScore + experienceScore + gpaScore) / 3;
+
+            postsResult.push({
                 postId: post._id,
-                title: post.title,   // 🔥 THÊM DÒNG NÀY
-                score: Math.round(score),
+                score: Math.round(totalScore),
                 skillScore: Math.round(skillScore),
-                majorScore,
-                experienceScore,
-                gpaScore,
+                experienceScore: Math.round(experienceScore),
+                gpaScore: Math.round(gpaScore),
+                majorScore: 0
             });
         }
 
-        const totalScore = postResults.reduce(
-            (sum, p) => sum + p.score,
-            0
+        const profileScore =
+            postsResult.reduce((sum, p) => sum + p.score, 0) /
+            postsResult.length;
+
+        const parsed = await ParsedCV.findByIdAndUpdate(
+            cvId,   // ✅ đúng: dùng _id
+            {
+                _id: cvId,
+                profileScore: Math.round(profileScore),
+                posts: postsResult
+            },
+            { upsert: true, new: true }
         );
 
-        const profileScore =
-            postResults.length > 0
-                ? totalScore / postResults.length
-                : 0;
+        res.json(parsed);
 
-        res.json({
-            profileScore: Math.round(profileScore),
-            posts: postResults,
-        });
-
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "Server error" });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json(err);
     }
-});
+};
 
 /*
 =====================================================

@@ -74,7 +74,8 @@ router.get("/parse/:cvId", async (req, res) => {
 
             postResults.push({
                 postId: post._id,
-                title: post.title,   // 🔥 THÊM DÒNG NÀY
+                title: post.title,
+                companyName: post.companyName,  
                 score: Math.round(score),
                 skillScore: Math.round(skillScore),
                 majorScore,

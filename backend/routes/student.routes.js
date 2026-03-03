@@ -4,17 +4,24 @@ const mongoose = require("mongoose");
 
 const CV = require("../models/CV");
 const Post = require("../models/InternshipPost");
-const ParsedCV = require("../models/ParsedCV");
 
-router.get("/parse/:cvId", async (req, res) => {
+/*
+========================================
+GET PARSE RESULT
+GET /api/student/parse/:userId
+========================================
+*/
+
+router.get("/parse/:userId", async (req, res) => {
     try {
-        const { cvId } = req.params;
+        const { userId } = req.params;
 
-        if (!mongoose.Types.ObjectId.isValid(cvId)) {
-            return res.status(400).json({ message: "Invalid CV ID" });
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
+            return res.status(400).json({ message: "Invalid user id" });
         }
 
-        const cv = await CV.findById(cvId);
+        const cv = await CV.findOne({ _id: userId });
+
         if (!cv) {
             return res.status(404).json({ message: "CV not found" });
         }
@@ -31,13 +38,13 @@ router.get("/parse/:cvId", async (req, res) => {
             const cvSkills = [
                 ...(cv.skills?.programmingLanguages || []),
                 ...(cv.skills?.frameworks || []),
-                ...(cv.skills?.tools || []),
+                ...(cv.skills?.tools || [])
             ].map(normalize);
 
             const postSkills = [
                 ...(post.skills?.programmingLanguages || []),
                 ...(post.skills?.frameworks || []),
-                ...(post.skills?.tools || []),
+                ...(post.skills?.tools || [])
             ].map(normalize);
 
             let skillScore = 0;
@@ -75,7 +82,7 @@ router.get("/parse/:cvId", async (req, res) => {
             postResults.push({
                 postId: post._id,
                 title: post.title,
-                companyName: post.companyName,  
+                companyName: post.companyName,
                 score: Math.round(score),
                 skillScore: Math.round(skillScore),
                 majorScore,

@@ -20,6 +20,11 @@ const userSchema = new mongoose.Schema(
             required: true,
         },
 
+        status: {
+            type: String,
+            enum: ["active", "blocked"],
+            default: "active",
+        },
         // ===== STUDENT =====
         fullName: String,
         phone: String,

@@ -76,31 +76,6 @@ export default function AdminDashboard({
                     <Stat title="CV Parsed" value={overview?.cvParsed || 0} />
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
-                    <Card title="Recent Activities">
-                        <ul className="space-y-3">
-                            {activities.map((a, i) => (
-                                <li key={i} className="text-sm border-b pb-2">
-                                    {a.message}
-                                </li>
-                            ))}
-                        </ul>
-                    </Card>
-
-                    <Card title="Most Applied Internships">
-                        <ul className="space-y-3">
-                            {topInternships.map((i, idx) => (
-                                <li key={idx} className="flex justify-between text-sm">
-                                    <span>{i.title}</span>
-                                    <span className="font-semibold">{i.appliedCount}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </Card>
-
-                </div>
-
                 <Card title="Usage Statistics">
                     <div style={{ width: "100%", height: 260 }}>
                         <ResponsiveContainer>

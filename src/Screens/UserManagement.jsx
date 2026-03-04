@@ -36,7 +36,7 @@ export default function UserManagementScreen({
     };
 
     const deleteUser = async id => {
-        if (!confirm("Delete user?")) return;
+        if (!window.confirm("Delete user?")) return;
         await axios.delete(`${API}/users/${id}`);
         loadUsers();
     };
@@ -65,7 +65,6 @@ export default function UserManagementScreen({
             />
 
             <div className="max-w-7xl mx-auto p-8">
-
                 <div className="bg-white rounded-2xl shadow-sm border p-6">
 
                     {/* FILTER */}
@@ -92,32 +91,46 @@ export default function UserManagementScreen({
                         <thead>
                             <tr className="border-b text-gray-500">
                                 <th className="text-left py-3">Name</th>
-                                <th>Role</th>
-                                <th>Status</th>
+                                <th className="text-center">Role</th>
+                                <th className="text-center">Status</th>
                                 <th className="text-center">Action</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             {filtered.map(u => (
-                                <tr key={u._id} className="border-b last:border-none">
+                                <tr key={u._id} className="border-b last:border-none hover:bg-slate-50">
 
-                                    <td className="py-3">{u.name}</td>
+                                    {/* NAME + COMPANY */}
+                                    <td className="py-3">
+                                        <div className="font-medium">
+                                            {u.name}
+                                        </div>
 
-                                    <td className="text-center capitalize">{u.role}</td>
+                                        {u.role === "recruiter" && u.companyName && (
+                                            <div className="text-xs text-gray-500 mt-1">
+                                                {u.companyName}
+                                            </div>
+                                        )}
+                                    </td>
+
+                                    <td className="text-center capitalize">
+                                        {u.role}
+                                    </td>
 
                                     <td className="text-center">
-                                        <span className={`px-3 py-1 rounded-full text-xs font-medium
+                                        <span
+                                            className={`px-3 py-1 rounded-full text-xs font-medium
                                             ${u.status === "blocked"
-                                                ? "bg-red-100 text-red-600"
-                                                : "bg-green-100 text-green-600"}`}>
+                                                    ? "bg-red-100 text-red-600"
+                                                    : "bg-green-100 text-green-600"}`}
+                                        >
                                             {u.status}
                                         </span>
                                     </td>
 
                                     <td className="py-2">
                                         <div className="flex justify-center gap-3">
-
                                             <button
                                                 onClick={() => toggleBlock(u._id)}
                                                 className="px-3 py-1 border rounded-lg hover:bg-slate-100"
@@ -131,12 +144,20 @@ export default function UserManagementScreen({
                                             >
                                                 Delete
                                             </button>
-
                                         </div>
                                     </td>
 
                                 </tr>
                             ))}
+
+                            {filtered.length === 0 && (
+                                <tr>
+                                    <td colSpan="4" className="text-center py-6 text-gray-400">
+                                        No users found
+                                    </td>
+                                </tr>
+                            )}
+
                         </tbody>
                     </table>
 

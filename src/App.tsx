@@ -63,7 +63,7 @@ type Student = {
 };
 
 function App() {
-    const [screen, setScreen] = useState<Screen>("login");
+    const [screen, setScreen] = useState<Screen>("admin-dashboard");
     const [role, setRole] = useState<Role>(null);
 
     const [_id, setId] = useState<string | null>(null);

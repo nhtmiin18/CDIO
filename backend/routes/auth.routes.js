@@ -12,6 +12,12 @@ router.post("/login", async (req, res) => {
             return res.status(401).json({ message: "Invalid credentials" });
         }
 
+        if (user.status === "blocked") {
+            return res.status(403).json({
+                message: "Your account has been blocked by admin",
+            });
+        }
+
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.status(401).json({ message: "Invalid credentials" });
@@ -20,12 +26,12 @@ router.post("/login", async (req, res) => {
         res.json({
             success: true,
             user: {
-                _id: user._id,  
+                _id: user._id,
                 role: user.role,
                 email: user.email,
                 fullName: user.fullName || null,
-                companyName: user.companyName || null
-            }
+                companyName: user.companyName || null,
+            },
         });
 
     } catch (err) {

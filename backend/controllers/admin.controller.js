@@ -88,14 +88,28 @@ exports.getUsers = async (req, res) => {
     try {
         const users = await User.find({ role: { $ne: "admin" } }).lean();
 
-        const mapped = users.map(u => ({
-            _id: u._id,
-            role: u.role,
-            status: u.status || "active",
-            name: u.name || u.fullName || u.hrName || u.email
-        }));
+        const mapped = users.map(u => {
+
+            let displayName;
+
+            if (u.role === "recruiter") {
+                // 🔥 Chỉ hiển thị companyName
+                displayName = u.companyName || u.email;
+            } else {
+                // Student
+                displayName = u.name || u.fullName || u.email;
+            }
+
+            return {
+                _id: u._id,
+                role: u.role,
+                status: u.status || "active",
+                name: displayName
+            };
+        });
 
         res.json(mapped);
+
     } catch (err) {
         res.status(500).json({ message: err.message });
     }
@@ -104,14 +118,16 @@ exports.getUsers = async (req, res) => {
 /* ================= BLOCK ================= */
 
 exports.toggleBlockUser = async (req, res) => {
-    try {
-        const user = await User.findById(req.params.id);
-        user.status = user.status === "blocked" ? "active" : "blocked";
-        await user.save();
-        res.json(user);
-    } catch (err) {
-        res.status(500).json({ message: err.message });
+    const user = await User.findById(req.params.id);
+
+    if (!user) {
+        return res.status(404).json({ message: "User not found" });
     }
+
+    user.status = user.status === "blocked" ? "active" : "blocked";
+    await user.save();
+
+    res.json(user);
 };
 
 /* ================= DELETE ================= */
